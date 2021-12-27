@@ -20,6 +20,10 @@ bash <(curl -sL https://ednovas.xyz/ednovastool.sh)
 
 工具箱中脚本均来自GitHub，大部分已注明作者
 
+## 交流 & BUG反馈
+
+TG群：https://t.me/ednovas4
+
 ## 打赏
 
 USDT(TRC20):
