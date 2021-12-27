@@ -1,3 +1,4 @@
+#!/bin/bash
 ver="1.0.0"
 changeLog="创建该整合脚本"
 
