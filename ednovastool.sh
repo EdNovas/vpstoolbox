@@ -286,7 +286,6 @@ function start_menu(){
     echo "v. 更新脚本"
     echo "0. 退出脚本"
     read -p "请输入选项:" menuNumberInput
-
     case "$menuNumberInput" in     
         1 ) rootLogin ;;
         2 ) vpsupdate ;;
