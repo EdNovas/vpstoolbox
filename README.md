@@ -4,8 +4,16 @@
 
 ## 一把梭命令
 
+最新版：
+
 ```
 wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
+```
+
+稳定版：
+
+```
+bash <(curl -sL https://ednovas.xyz/ednovastool.sh)
 ```
 
 此整合脚本整体借鉴自[御坂的Linux VPS工具箱](https://github.com/Misaka-blog/MisakaLinuxToolbox)
