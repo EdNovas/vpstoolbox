@@ -228,7 +228,7 @@ function georgexie2333arm(){
 }
 
 function updateScript(){
-    wget -N https://cdn.jsdelivr.net/gh/Misaka-blog/MisakaLinuxToolbox@master/MisakaToolbox.sh && chmod -R 777 MisakaToolbox.sh && bash MisakaToolbox.sh
+    wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod -R 755 tool.sh && bash ednovastool.sh
 }
 
 function start_menu(){
