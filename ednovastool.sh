@@ -322,7 +322,5 @@ function start_menu(){
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
-    
-
 }
 start_menu
