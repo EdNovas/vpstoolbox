@@ -228,7 +228,7 @@ function georgexie2333arm(){
 }
 
 function updateScript(){
-    wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod -R 755 ednovastool.sh && bash ednovastool.sh
+    wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
 }
 
 function start_menu(){
