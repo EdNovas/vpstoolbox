@@ -8,7 +8,9 @@
 wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
 ```
 
-脚本整体借鉴自御坂的Linux VPS工具箱 https://github.com/Misaka-blog/MisakaLinuxToolbox
+此整合脚本整体借鉴自御坂的Linux VPS工具箱 https://github.com/Misaka-blog/MisakaLinuxToolbox
+
+工具箱中脚本均来自GitHub，大部分已注明作者
 
 ## 打赏
 
