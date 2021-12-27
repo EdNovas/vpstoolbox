@@ -235,11 +235,12 @@ function updateScript(){
 function start_menu(){
     clear
     green "~~~~~~~~~~~~~~~~~~~~~~~~"
-    green "                        "
-    green "       From EdNovas     "
+    echo "                        "
+    green "        EdNovas         "
     green "   https://ednovas.xyz  "
-    green "                        "
+    echo "                        "
     green "~~~~~~~~~~~~~~~~~~~~~~~~"
+    echo "                        "
     yellow "当前版本(Version): $ver"
     yellow "更新(Updates): $changeLog"
     echo "                        "
