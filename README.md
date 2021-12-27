@@ -24,6 +24,8 @@ bash <(curl -sL https://ednovas.xyz/ednovastool.sh)
 
 ## 交流 & BUG反馈
 
+有好用的脚本可以提issue或者群内交流
+
 TG群：https://t.me/ednovas4
 
 ## 打赏
