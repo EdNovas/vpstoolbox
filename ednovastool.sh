@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.0.2"
-changeLog="添加cxxmatrix黑客帝国屏蔽"
+ver="1.0.3"
+changeLog="添加rclone脚本"
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -242,6 +242,10 @@ function cxxmatrix(){
     ./cxxmatrix 'The Matrix' 'Reloaded'
 }
 
+function rclone(){
+    curl https://rclone.org/install.sh | sudo bash
+}
+
 function updateScript(){
     wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
 }
@@ -300,6 +304,7 @@ function start_menu(){
     echo "32. Docker一键脚本"
     echo "33. aapanel 国际版宝塔安装"
     echo "34. cxxmatrix黑客帝国屏保"
+    echo "35. Rclone官方一键脚本"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -340,6 +345,7 @@ function start_menu(){
         32 ) docker ;;
         33 ) aapanel ;;
         34 ) cxxmatrix ;;
+        35 ) rclone ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
