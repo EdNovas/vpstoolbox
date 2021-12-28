@@ -234,6 +234,13 @@ function georgexie2333arm(){
     curl -sL https://raw.githubusercontent.com/GeorgeXie2333/Project-WARP-Unlock/main/run_arm.sh | bash
 }
 
+function cxxmatrix(){
+    git clone https://github.com/akinomyoga/cxxmatrix.git
+    cd cxxmatrix
+    make
+    ./cxxmatrix 'The Matrix' 'Reloaded'
+}
+
 function updateScript(){
     wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
 }
@@ -291,6 +298,7 @@ function start_menu(){
     echo "                        "
     echo "32. Docker一键脚本"
     echo "33. aapanel 国际版宝塔安装"
+    echo "34. cxxmatrix黑客帝国屏保"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -330,6 +338,7 @@ function start_menu(){
         31 ) brook ;;
         32 ) docker ;;
         33 ) aapanel ;;
+        34 ) cxxmatrix ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
