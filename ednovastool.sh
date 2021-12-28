@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.0.1"
-changeLog="添加mtproxy+伪tls脚本"
+ver="1.0.2"
+changeLog="添加cxxmatrix黑客帝国屏蔽"
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
