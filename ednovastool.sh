@@ -319,7 +319,7 @@ function start_menu(){
         12 ) xui ;; 
         13 ) macka ;;
         14 ) xrayr ;;
-        15 ）mtproxy ;;
+        15 ) mtproxy ;;
         16 ) tcp ;;
         17 ) bbr ;;
         18 ) ovzbbr ;;
