@@ -99,8 +99,7 @@ function oraclefirewall(){
         iptables -P FORWARD ACCEPT
         iptables -P OUTPUT ACCEPT
         iptables -F
-        yellow "请输入y并回车(Press 'y' and enter)"
-        apt-get purge netfilter-persistent
+        apt-get purge netfilter-persistent -y
     fi
 }
 
@@ -235,6 +234,8 @@ function georgexie2333arm(){
 }
 
 function cxxmatrix(){
+    sudo apt install make
+    sudo apt install g++ -y
     git clone https://github.com/akinomyoga/cxxmatrix.git
     cd cxxmatrix
     make
