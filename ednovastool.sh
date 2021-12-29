@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.0.4"
-changeLog="添加xrayr审计规则"
+ver="1.0.5"
+changeLog="添加teamspeak一键脚本"
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -145,6 +145,20 @@ function gost(){
     wget --no-check-certificate -O gost.sh http://xiaojier.mooncloud.top/backup/gost.sh && chmod +x gost.sh && ./gost.sh
 }
 
+function teamspeak(){
+    iptables -A INPUT -p udp --destination-port 9987 -j ACCEPT
+    iptables -A INPUT -p tcp --dport  10011 -j ACCEPT
+    iptables -A INPUT -p tcp --dport  30033 -j ACCEPT
+    wget https://files.teamspeak-services.com/releases/server/3.13.6/teamspeak3-server_linux_amd64-3.13.6.tar.bz2
+    yum install vim wget perl tar net-tools bzip2 -y
+    tar -xjvf teamspeak3-server_linux_amd64-3.13.6.tar.bz2
+    mkdir teamspeak
+    mv  teamspeak3-server_linux_amd64/* teamspeak
+    rm -rf teamspeak3-server_linux_amd64
+    cd teamspeak
+    touch .ts3server_license_accepted
+    ./ts3server_startscript.sh start
+}
 
 function brook(){
     wget  -N --no-check-certificate http://xiaojier.mooncloud.top/backup/brook-pf-mod.sh && bash brook-pf-mod.sh
@@ -313,6 +327,7 @@ function start_menu(){
     echo "34. cxxmatrix黑客帝国屏保"
     echo "35. Rclone官方一键脚本"
     echo "36. Xrayr添加本地审计规则"
+    echo "37. Teamspeak一键脚本"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -355,6 +370,7 @@ function start_menu(){
         34 ) cxxmatrix ;;
         35 ) rclone ;;
         36 ) rulelist ;;
+        37 ) teamspeak ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
