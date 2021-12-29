@@ -373,7 +373,7 @@ function start_menu(){
         35 ) rclone ;;
         36 ) rulelist ;;
         37 ) teamspeak ;;
-        38 ) ssronekey
+        38 ) ssronekey ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
