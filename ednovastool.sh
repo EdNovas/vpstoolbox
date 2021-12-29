@@ -165,7 +165,7 @@ function socat(){
     wget https://www.moerats.com/usr/shell/socat.sh && bash socat.sh
 }
 
-function iptables(){
+function iptablesonekey(){
     wget -N --no-check-certificate https://www.vrrmr.net/Code/iptables-pf.sh && chmod +x iptables-pf.sh && bash iptables-pf.sh
 }
 
@@ -358,7 +358,7 @@ function start_menu(){
         25 ) georgexie2333arm ;;
         26 ) georgexie2333 ;;
         27 ) fscarmen ;;
-        28 ) iptables ;;
+        28 ) iptablesonekey ;;
         29 ) socat ;;
         30 ) gost ;;
         31 ) brook ;;
