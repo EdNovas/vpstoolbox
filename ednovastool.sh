@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.0.3"
-changeLog="添加rclone脚本"
+ver="1.0.4"
+changeLog="添加xrayr审计规则"
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -200,6 +200,13 @@ function acacia233(){
     curl -sL https://raw.githubusercontent.com/acacia233/Project-WARP-Unlock/main/run.sh | bash
 }
 
+function rulelist(){
+    cd /etc/XrayR
+    wget https://raw.githubusercontent.com/wdm1732418365/rulelist/main/rulelist
+    sudo sed -i 's/RuleListPath:/RuleListPath: \/etc\/XrayR\/rulelist/g' /etc/XrayR/config.yml
+    xrayr restart
+}
+
 function changehostname(){
     read -p "您的新主机名(Your new hostname):" newhostname
     hostnamectl set-hostname $newhostname
@@ -305,6 +312,7 @@ function start_menu(){
     echo "33. aapanel 国际版宝塔安装"
     echo "34. cxxmatrix黑客帝国屏保"
     echo "35. Rclone官方一键脚本"
+    echo "36. Xrayr添加本地审计规则"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -346,6 +354,7 @@ function start_menu(){
         33 ) aapanel ;;
         34 ) cxxmatrix ;;
         35 ) rclone ;;
+        36 ) rulelist ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
