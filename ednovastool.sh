@@ -86,6 +86,10 @@ function vpsupdate(){
     fi
 }
 
+function ssronekey(){
+    bash <(curl -sL https://s.hijk.art/ssr.sh)
+}
+
 function oraclefirewall(){
     if [ $release = "Centos" ]; then
         systemctl stop oracle-cloud-agent
@@ -325,6 +329,7 @@ function start_menu(){
     echo "35. Rclone官方一键脚本"
     echo "36. Xrayr添加本地审计规则"
     echo "37. Teamspeak一键脚本"
+    echo "38. ssr一键脚本"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -368,6 +373,7 @@ function start_menu(){
         35 ) rclone ;;
         36 ) rulelist ;;
         37 ) teamspeak ;;
+        38 ) ssronekey
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
