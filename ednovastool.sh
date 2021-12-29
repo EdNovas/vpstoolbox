@@ -146,9 +146,6 @@ function gost(){
 }
 
 function teamspeak(){
-    iptables -A INPUT -p udp --destination-port 9987 -j ACCEPT
-    iptables -A INPUT -p tcp --dport  10011 -j ACCEPT
-    iptables -A INPUT -p tcp --dport  30033 -j ACCEPT
     wget https://files.teamspeak-services.com/releases/server/3.13.6/teamspeak3-server_linux_amd64-3.13.6.tar.bz2
     yum install vim wget perl tar net-tools bzip2 -y
     tar -xjvf teamspeak3-server_linux_amd64-3.13.6.tar.bz2
