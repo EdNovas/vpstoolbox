@@ -380,6 +380,7 @@ function start_menu(){
     echo "38. ssr一键脚本"
     echo "39. Epic Games自动领取每周免费游戏脚本"
 	echo "40. 显示本机IP"
+	echo "41. 显示本机IP"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -426,6 +427,7 @@ function start_menu(){
         38 ) ssronekey ;;
         39 ) epicgamesonekey ;;
 	40 ) ipdetestonekey ;;
+	41 ) Get_Ip_Address ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
