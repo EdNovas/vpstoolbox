@@ -298,7 +298,6 @@ function epicgamesonekey(){
 function qinglongonekey(){
 	curl -fsSL https://get.docker.com/ | sh
 	sudo systemctl start docker
-    sudo systemctl status docker
     sudo systemctl enable docker
     docker run -dit --name QL --hostname QL --restart always -p 5700:5700 -v $PWD/QL/config:/ql/config -v $PWD/QL/log:/ql/log -v $PWD/QL/db:/ql/db -v $PWD/QL/scripts:/ql/scripts -v $PWD/QL/jbot:/ql/jbot whyour/qinglong:latest
     echo "安装成功，访问 https://${getIpAddress}:5700 即可登录青龙面板，记得开放5700端口！"
