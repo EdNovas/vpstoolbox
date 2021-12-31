@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.0.9"
-changeLog="添加青龙面板一键脚本"
+ver="1.1.0"
+changeLog="添加青龙面板一键脚本，添加检测本机IP，并修复了一些bug"
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
