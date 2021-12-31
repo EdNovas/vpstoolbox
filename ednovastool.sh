@@ -213,7 +213,7 @@ function lemonbench(){
     curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s fast
 }
 
-function xrayr(){
+function xrayronekey(){
     bash <(curl -Ls https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/install.sh)
 }
 
