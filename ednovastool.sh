@@ -268,6 +268,14 @@ function rcloneonekey(){
     curl https://rclone.org/install.sh | sudo bash
 }
 
+function epicgamesonekey(){
+    git clone -b main https://github.com/luminoleon/epicgames-claimer.git
+    cd epicgames-claimer
+    pip3 install -r requirements.txt
+    sudo sh install_dependencies.sh
+    python3 main.py
+}
+
 function updateScript(){
     wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
 }
@@ -330,6 +338,7 @@ function start_menu(){
     echo "36. Xrayr添加本地审计规则"
     echo "37. Teamspeak一键脚本"
     echo "38. ssr一键脚本"
+    echo "39. Epic Games自动领取每周免费游戏脚本"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -374,6 +383,7 @@ function start_menu(){
         36 ) rulelist ;;
         37 ) teamspeakonekey ;;
         38 ) ssronekey ;;
+        39 ) epicgamesonekey ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
