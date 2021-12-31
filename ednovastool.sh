@@ -75,6 +75,10 @@ function rootLogin(){
     wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/root.sh && chmod -R 755 root.sh && bash root.sh
 }
 
+function ipdetestonekey(){
+	echo "你的VPS当前IP地址为 ${getIpAddress} "
+}
+
 
 function warponekey(){
     wget -N https://cdn.jsdelivr.net/gh/fscarmen/warp/menu.sh && bash menu.sh
@@ -371,6 +375,7 @@ function start_menu(){
     echo "37. Teamspeak一键脚本 3.13.6"
     echo "38. ssr一键脚本"
     echo "39. Epic Games自动领取每周免费游戏脚本"
+	echo "40. 显示本机IP"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -416,6 +421,7 @@ function start_menu(){
         37 ) teamspeakonekey ;;
         38 ) ssronekey ;;
         39 ) epicgamesonekey ;;
+		40 ) ipdetestonekey ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
