@@ -12,9 +12,6 @@ yellow(){
     echo -e "\033[33m\033[01m$1\033[0m"
 }
 
-Get_Ip_Address(){
-	getIpAddress=$(curl -sS --connect-timeout 10 -m 60 https://www.aapanel.com/api/common/getClientIP)
-}
 
 if [[ -f /etc/redhat-release ]]; then
 release="Centos"
@@ -79,6 +76,10 @@ function ipdetestonekey(){
 	curl -6 ip.p3terx.com
 }
 
+function Get_Ip_Address(){
+	getIpAddress=$(curl -sS --connect-timeout 10 -m 60 https://www.aapanel.com/api/common/getClientIP)
+	echo "IP地址为 $getIpAddress"
+}
 
 function warponekey(){
     wget -N https://cdn.jsdelivr.net/gh/fscarmen/warp/menu.sh && bash menu.sh
