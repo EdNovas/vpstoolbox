@@ -1,3 +1,32 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@wdm1732418365 
+wdm1732418365
+/
+vpstoolbox
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+vpstoolbox/ednovastool.sh
+@wdm1732418365
+wdm1732418365 Update ednovastool.sh
+Latest commit e05b1ec 2 days ago
+ History
+ 1 contributor
+381 lines (331 sloc)  11.1 KB
+   
 #!/bin/bash
 ver="1.0.5"
 changeLog="添加teamspeak一键脚本"
@@ -71,7 +100,7 @@ function rootLogin(){
 }
 
 
-function warp(){
+function warponekey(){
     wget -N https://cdn.jsdelivr.net/gh/fscarmen/warp/menu.sh && bash menu.sh
 }
 
@@ -120,11 +149,11 @@ function macka(){
     wget -P /root -N --no-check-certificate "https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh" && chmod 700 /root/install.sh && /root/install.sh
 }
 
-function tcp(){
+function tcponekey(){
     wget https://raw.githubusercontent.com/wdm1732418365/bbr-tcp-boost/main/tools.sh -O tools.sh && bash tools.sh
 }
 
-function bbr(){
+function bbronekey(){
     wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 }
 
@@ -133,7 +162,7 @@ function ovzbbr(){
     wget --no-cache -O lkl-haproxy.sh https://github.com/mzz2017/lkl-haproxy/raw/master/lkl-haproxy.sh && bash lkl-haproxy.sh
 }
 
-function bench(){
+function benchoneky(){
     wget -qO- bench.sh | bash
 }
 
@@ -145,11 +174,11 @@ function superspeed(){
     bash <(curl -Lso- https://git.io/superspeed)
 }
 
-function gost(){
+function gostonekey(){
     wget --no-check-certificate -O gost.sh http://xiaojier.mooncloud.top/backup/gost.sh && chmod +x gost.sh && ./gost.sh
 }
 
-function teamspeak(){
+function teamspeakonekey(){
     wget https://files.teamspeak-services.com/releases/server/3.13.6/teamspeak3-server_linux_amd64-3.13.6.tar.bz2
     yum install vim wget perl tar net-tools bzip2 -y
     tar -xjvf teamspeak3-server_linux_amd64-3.13.6.tar.bz2
@@ -161,11 +190,11 @@ function teamspeak(){
     ./ts3server_startscript.sh start
 }
 
-function brook(){
+function brookonekey(){
     wget  -N --no-check-certificate http://xiaojier.mooncloud.top/backup/brook-pf-mod.sh && bash brook-pf-mod.sh
 }
 
-function socat(){
+function socatonekey(){
     wget https://www.moerats.com/usr/shell/socat.sh && bash socat.sh
 }
 
@@ -199,7 +228,7 @@ function netflixarm(){
     wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_arm64 && chmod +x nf && clear && ./nf
 }
 
-function docker(){
+function dockeronekey(){
     curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 }
 
@@ -229,12 +258,12 @@ function changehostname(){
     green "Finished! Please reconnect to ssh or reboot your vps"
 }
 
-function mtproxy(){
+function mtproxyonekey(){
     mkdir /home/mtproxy && cd /home/mtproxy
     curl -s -o mtproxy.sh https://raw.githubusercontent.com/ellermister/mtproxy/master/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
 }
 
-function aria2(){
+function aria2onekey(){
     apt install wget curl ca-certificates && wget -N git.io/aria2.sh && chmod +x aria2.sh && ./aria2.sh
 }
 
@@ -264,7 +293,7 @@ function cxxmatrix(){
     ./cxxmatrix 'The Matrix' 'Reloaded'
 }
 
-function rclone(){
+function rcloneonekey(){
     curl https://rclone.org/install.sh | sudo bash
 }
 
@@ -341,41 +370,53 @@ function start_menu(){
         3 ) oraclefirewall ;;
         4 ) centosfirewall ;;
         5 ) changehostname ;;
-        6 ) bench ;;
+        6 ) benchonekey ;;
         7 ) superbench ;;
         8 ) lemonbench ;;
         9 ) superspeed ;;
-        10 ) aria2 ;;
+        10 ) aria2onekey ;;
         11 ) nezha ;;
         12 ) xui ;; 
         13 ) macka ;;
-        14 ) xrayr ;;
-        15 ) mtproxy ;;
-        16 ) tcp ;;
-        17 ) bbr ;;
+        14 ) xrayronekey ;;
+        15 ) mtproxyonekey ;;
+        16 ) tcponekey ;;
+        17 ) bbronekey ;;
         18 ) ovzbbr ;;
         19 ) region ;;
         20 ) netflixamd ;;
         21 ) netflixarm ;;
-        22 ) warp ;;
+        22 ) warponekey ;;
         23 ) acacia233 ;;
         24 ) georgexie2333amd ;;
         25 ) georgexie2333arm ;;
         26 ) georgexie2333 ;;
         27 ) fscarmen ;;
         28 ) iptablesonekey ;;
-        29 ) socat ;;
-        30 ) gost ;;
-        31 ) brook ;;
-        32 ) docker ;;
+        29 ) socatonekey ;;
+        30 ) gostoneky ;;
+        31 ) brookonekey ;;
+        32 ) dockeronekey ;;
         33 ) aapanel ;;
         34 ) cxxmatrix ;;
-        35 ) rclone ;;
+        35 ) rcloneonekey ;;
         36 ) rulelist ;;
-        37 ) teamspeak ;;
+        37 ) teamspeakonekey ;;
         38 ) ssronekey ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
 }
 start_menu
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
