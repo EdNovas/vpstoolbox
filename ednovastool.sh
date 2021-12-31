@@ -150,6 +150,7 @@ function gostonekey(){
 }
 
 function teamspeakonekey(){
+    cd /home
     wget https://files.teamspeak-services.com/releases/server/3.13.6/teamspeak3-server_linux_amd64-3.13.6.tar.bz2
     yum install vim wget perl tar net-tools bzip2 -y
     tar -xjvf teamspeak3-server_linux_amd64-3.13.6.tar.bz2
@@ -258,6 +259,7 @@ function georgexie2333arm(){
 function cxxmatrix(){
     sudo apt install make
     sudo apt install g++ -y
+    cd /home
     git clone https://github.com/akinomyoga/cxxmatrix.git
     cd cxxmatrix
     make
@@ -270,6 +272,7 @@ function rcloneonekey(){
 
 function epicgamesonekey(){
     apt install python3-pip -y
+    cd /home
     git clone -b main https://github.com/luminoleon/epicgames-claimer.git
     cd epicgames-claimer
     pip3 install -r requirements.txt
@@ -337,7 +340,7 @@ function start_menu(){
     echo "34. cxxmatrix黑客帝国屏保"
     echo "35. Rclone官方一键脚本"
     echo "36. Xrayr添加本地审计规则"
-    echo "37. Teamspeak一键脚本"
+    echo "37. Teamspeak一键脚本 3.13.6"
     echo "38. ssr一键脚本"
     echo "39. Epic Games自动领取每周免费游戏脚本"
     echo "                        "
