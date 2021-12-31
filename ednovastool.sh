@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.0.6"
-changeLog="修改了一些bug"
+ver="1.0.7"
+changeLog="添加epic games每周免费游戏领取脚本"
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
