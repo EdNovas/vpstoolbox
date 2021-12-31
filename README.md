@@ -31,6 +31,10 @@ bash <(curl -sL https://ednovas.xyz/ednovastool.sh)
 
 TG群：https://t.me/ednovas4
 
+## 脚本来源
+
+青龙面板：https://blog.csdn.net/weixin_42565036/article/details/117569495
+
 ## 打赏
 
 USDT(TRC20):
