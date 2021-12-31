@@ -269,6 +269,7 @@ function rcloneonekey(){
 }
 
 function epicgamesonekey(){
+    apt install python3-pip -y
     git clone -b main https://github.com/luminoleon/epicgames-claimer.git
     cd epicgames-claimer
     pip3 install -r requirements.txt
