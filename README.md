@@ -34,6 +34,7 @@ TG群：https://t.me/ednovas4
 ## 脚本来源
 
 青龙面板：https://blog.csdn.net/weixin_42565036/article/details/117569495
+
 青龙教程合集：https://www.notion.so/1c598629675145988b43a37998a1604a
 
 ## 打赏
