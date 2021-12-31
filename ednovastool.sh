@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.0.8"
-changeLog="添加epic games每周免费游戏领取脚本，并修改部分脚本下载位置为home路径"
+ver="1.0.9"
+changeLog="添加青龙面板一键脚本"
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -305,7 +305,7 @@ function qinglongonekey(){
       -v $PWD/QL/jbot:/ql/jbot \
       whyour/qinglong:latest
     echo "安装成功，访问 https://${getIpAddress}:5700 即可登录青龙面板，记得开放5700端口！"
-    green "用户名为 admin 密码是 adminadmin"
+    echo "用户名为 admin 密码是 adminadmin"
 }
 
 function updateScript(){
