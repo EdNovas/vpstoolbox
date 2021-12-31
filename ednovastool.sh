@@ -72,7 +72,7 @@ function rootLogin(){
 }
 
 function ipdetestonekey(){
-	yellow "'curl: (7) Couldn't connect to server'即表示无IPV4/IPV6地址"
+	yellow "'curl: (7) Couldn't connect to server' 即表示无IPV4/IPV6地址"
 	green "IPV4地址为："
 	curl -4 ip.p3terx.com
 	green "IPV6地址为："
