@@ -12,6 +12,11 @@ yellow(){
     echo -e "\033[33m\033[01m$1\033[0m"
 }
 
+Get_Ip_Address(){
+	getIpAddress=""
+	getIpAddress=$(curl -sS --connect-timeout 10 -m 60 https://www.aapanel.com/api/common/getClientIP)
+}
+
 if [[ -f /etc/redhat-release ]]; then
 release="Centos"
 elif cat /etc/issue | grep -q -E -i "debian"; then
@@ -278,6 +283,29 @@ function epicgamesonekey(){
     pip3 install -r requirements.txt
     sudo sh install_dependencies.sh
     python3 main.py
+}
+
+
+
+function qinglongonekey(){
+    sudo yum check-update
+    curl -fsSL https://get.docker.com/ | sh
+    sudo systemctl start docker
+    sudo systemctl status docker
+    sudo systemctl enable docker
+    docker run -dit \
+      --name QL \
+      --hostname QL \
+      --restart always \
+      -p 5700:5700 \
+      -v $PWD/QL/config:/ql/config \
+      -v $PWD/QL/log:/ql/log \
+      -v $PWD/QL/db:/ql/db \
+      -v $PWD/QL/scripts:/ql/scripts \
+      -v $PWD/QL/jbot:/ql/jbot \
+      whyour/qinglong:latest
+    echo "安装成功，访问 https://${getIpAddress}:5700 即可登录青龙面板，记得开放5700端口！"
+    green "用户名为 admin 密码是 adminadmin"
 }
 
 function updateScript(){
