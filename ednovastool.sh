@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.0.7"
-changeLog="添加epic games每周免费游戏领取脚本"
+ver="1.0.8"
+changeLog="添加epic games每周免费游戏领取脚本，并修改部分脚本下载位置为home路径"
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
