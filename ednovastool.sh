@@ -1,6 +1,9 @@
 #!/bin/bash
-ver="1.1.0"
-changeLog="添加青龙面板一键脚本，添加检测本机IP，并修复了一些bug"
+ver="1.1.1"
+changeLog="移除superbench，添加VPS系统和架构信息"
+arch=`uname -m`
+virt=`systemd-detect-virt`
+kernelVer=`uname -r`
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -310,16 +313,22 @@ function updateScript(){
 
 function start_menu(){
     clear
-    green "~~~~~~~~~~~~~~~~~~~~~~~~"
-    echo "                        "
-    green "        EdNovas         "
-    green "   https://ednovas.xyz  "
-    echo "                        "
-    green "~~~~~~~~~~~~~~~~~~~~~~~~"
+    green "============================="
+    echo "                             "
+    green "            EdNovas          "
+    green "      https://ednovas.xyz    "
+    echo "                             "
+    green "============================="
     echo "                        "
     yellow "当前版本(Version): $ver"
     yellow "更新(Updates): $changeLog"
+    echo "                        "
+    yellow "======检测到VPS信息如下======"
     yellow "当前VPS ip地址为：$getIpAddress"
+    yellow "处理器架构：$arch"
+    yellow "虚拟化架构：$virt"
+    yellow "操作系统：$release"
+    yellow "内核版本：$kernelVer"
     echo "                        "
     echo "1. 修改登录为 root 密码登录"
     echo "2. VPS系统更新"
