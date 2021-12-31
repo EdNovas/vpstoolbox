@@ -31,6 +31,30 @@ bash <(curl -sL https://ednovas.xyz/edtool.sh)
 
 TG群：https://t.me/ednovas4
 
+## 更新进程
+
+v 1.1.0 修改了青龙面板一键脚本，添加了检测本机IP，并修复了一些BUG
+
+v 1.0.9 添加青龙面板一键脚本
+
+v 1.0.8 修改epic games每周免费游戏领取脚本，并修改部分脚本下载位置为home路径
+
+v 1.0.7 添加epic games每周免费游戏领取脚本
+
+v 1.0.6 修改了一些bug
+
+v 1.0.5 添加teamspeak一键脚本
+
+v 1.0.4 添加xrayr审计规则
+
+v 1.0.3 添加rclone脚本
+
+v 1.0.2 添加cxxmatrix黑客帝国屏保
+
+v 1.0.1 添加mtproxy+伪tls脚本
+
+v 1.0.0 创建了该脚本
+
 ## 脚本来源
 
 青龙面板：https://blog.csdn.net/weixin_42565036/article/details/117569495
