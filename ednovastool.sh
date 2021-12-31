@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.0.5"
-changeLog="添加teamspeak一键脚本"
+ver="1.0.6"
+changeLog="修改了一些bug"
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -379,15 +379,3 @@ function start_menu(){
     esac
 }
 start_menu
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
