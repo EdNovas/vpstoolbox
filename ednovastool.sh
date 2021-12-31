@@ -13,7 +13,6 @@ yellow(){
 }
 
 Get_Ip_Address(){
-	getIpAddress=""
 	getIpAddress=$(curl -sS --connect-timeout 10 -m 60 https://www.aapanel.com/api/common/getClientIP)
 }
 
@@ -76,7 +75,8 @@ function rootLogin(){
 }
 
 function ipdetestonekey(){
-	echo "你的VPS当前IP地址为 ${getIpAddress} "
+	curl -4 ip.p3terx.com
+	curl -6 ip.p3terx.com
 }
 
 
@@ -421,9 +421,10 @@ function start_menu(){
         37 ) teamspeakonekey ;;
         38 ) ssronekey ;;
         39 ) epicgamesonekey ;;
-		40 ) ipdetestonekey ;;
+	40 ) ipdetestonekey ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
 }
+echo "你的VPS当前IP地址为 ${getIpAddress} "
 start_menu
