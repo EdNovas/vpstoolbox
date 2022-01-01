@@ -33,6 +33,8 @@ TG群：https://t.me/ednovas4
 
 ## 更新进程
 
+v 1.1.3 添加了screen和acme.sh脚本
+
 v 1.1.2 修复了一些bug
 
 v 1.1.1 删除了superbench脚本，添加了检测VPS信息
@@ -60,6 +62,10 @@ v 1.0.1 添加mtproxy+伪tls脚本
 v 1.0.0 创建了该脚本
 
 ## 脚本来源
+
+screen后台运行管理脚本：https://github.com/Misaka-blog/screenManager
+
+acme.sh一键申请证书脚本：https://github.com/Misaka-blog/acme1key
 
 青龙面板：https://blog.csdn.net/weixin_42565036/article/details/117569495
 
