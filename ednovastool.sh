@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.1.4"
-changeLog="添加了三网测速脚本，优化了arm/amd等选项"
+ver="1.1.3"
+changeLog="添加了screen和acme脚本"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -356,6 +356,7 @@ function qinglongonekey(){
     echo "安装成功，访问 https://${getIpAddress}:5700 即可登录青龙面板，记得开放5700端口！"
     echo "用户名为 admin 密码是 adminadmin"
 }
+
 
 function updateScript(){
     wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
