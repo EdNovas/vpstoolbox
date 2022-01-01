@@ -1,11 +1,10 @@
 #!/bin/bash
-ver="1.1.3"
-changeLog="添加了screen和acme脚本"
+ver="1.1.4"
+changeLog="添加了三网测速脚本，优化了arm/amd等选项"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
 hostnameVariable=`hostname`
-releaseVersion=`head -n 1 /etc/issue`
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -213,13 +212,14 @@ function region(){
     bash <(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
 }
 
-function netflixamd(){
-    wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_amd64 && chmod +x nf && clear && ./nf
+function netflixdetect(){
+    if [ $arch = "aarch64" ]; then
+        wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_arm64 && chmod +x nf && clear && ./nf
+    else
+        wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_amd64 && chmod +x nf && clear && ./nf
+    fi
 }
 
-function netflixarm(){
-    wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_arm64 && chmod +x nf && clear && ./nf
-}
 
 function dockeronekey(){
     curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
@@ -278,13 +278,14 @@ function georgexie2333(){
     wget https://github.com/GeorgeXie2333/Project-WARP-Unlock/raw/main/warp_change_ip.sh && chmod +x warp_change_ip.sh && ./warp_change_ip.sh
 }
 
-function georgexie2333amd(){
-    curl -sL https://raw.githubusercontent.com/GeorgeXie2333/Project-WARP-Unlock/main/run.sh | bash
+function georgexie2333onekey(){
+    if [ $arch = "aarch64" ]; then
+        curl -sL https://raw.githubusercontent.com/GeorgeXie2333/Project-WARP-Unlock/main/run_arm.sh | bash
+    else
+        curl -sL https://raw.githubusercontent.com/GeorgeXie2333/Project-WARP-Unlock/main/run.sh | bash
+    fi
 }
 
-function georgexie2333arm(){
-    curl -sL https://raw.githubusercontent.com/GeorgeXie2333/Project-WARP-Unlock/main/run_arm.sh | bash
-}
 
 function cxxmatrix(){
     if [ $release = "Centos" ]; then
@@ -373,11 +374,12 @@ function start_menu(){
     yellow "更新(Updates): $changeLog"
     echo "                        "
     yellow "======检测到VPS信息如下======"
-    yellow "当前VPS ip地址为：$getIpAddress"
-    yellow "处理器架构：$arch"
-    yellow "虚拟化架构：$virt"
-    yellow "操作系统：$releaseVersion"
-    yellow "内核版本：$kernelVer"
+    green "ip地址：$getIpAddress"
+	green "主机名：$hostnameVariable"
+    green "处理器架构：$arch"
+    green "虚拟化架构：$virt"
+    green "操作系统：$release"
+    green "内核版本：$kernelVer"
     echo "                        "
     echo "1. 修改登录为 root 密码登录"
     echo "2. VPS系统更新"
@@ -403,34 +405,33 @@ function start_menu(){
     echo "18. OVZ开启BBR"
     echo "                        "
     echo "19. 流媒体检测脚本"
-    echo "20. AMD奈飞检测脚本"
-    echo "21. ARM奈飞检测脚本"
+    echo "20. 奈飞检测脚本"
+
     echo "                        "
-    echo "22. fscarmen warp一键脚本"
-    echo "23. acacia233 warp解锁奈飞脚本"
-    echo "24. GeorgeXie2333 warp解锁奈飞脚本"
-    echo "25. GeorgeXie2333 ARM warp解锁奈飞脚本"
-    echo "26. GeorgeXie2333 warp刷IP脚本"
-    echo "27. fscarmen warp刷IP脚本"
+    echo "21. fscarmen warp一键脚本"
+    echo "22. acacia233 warp解锁奈飞脚本"
+    echo "23. GeorgeXie2333 warp解锁奈飞脚本"
+    echo "24. GeorgeXie2333 warp刷IP脚本"
+    echo "25. fscarmen warp刷IP脚本"
     echo "                        "
-    echo "28. Iptables转发脚本"
-    echo "29. Socat转发脚本"
-    echo "30. Gost加密脚本"
-    echo "31. Brook转发脚本"
+    echo "26. Iptables转发脚本"
+    echo "27. Socat转发脚本"
+    echo "28. Gost加密脚本"
+    echo "29. Brook转发脚本"
     echo "                        "
-    echo "32. Docker一键脚本"
-    echo "33. aapanel 国际版宝塔安装"
-    echo "34. cxxmatrix黑客帝国屏保"
-    echo "35. Rclone官方一键脚本"
-    echo "36. Xrayr添加本地审计规则"
-    echo "37. Teamspeak一键脚本 3.13.6"
-    echo "38. ssr一键脚本"
-    echo "39. Epic Games自动领取每周免费游戏脚本"
-	echo "40. 显示本机IP"
-	echo "41. 青龙面板一键脚本"
-    echo "42. Acme.sh一键申请证书"
-    echo "43. Screen后台运行管理脚本"
-    echo "44. 三网测速脚本"
+    echo "30. Docker一键脚本"
+    echo "31. aapanel 国际版宝塔安装"
+    echo "32. cxxmatrix黑客帝国屏保"
+    echo "33. Rclone官方一键脚本"
+    echo "34. Xrayr添加本地审计规则"
+    echo "35. Teamspeak一键脚本 3.13.6"
+    echo "36. ssr一键脚本"
+    echo "37. Epic Games自动领取每周免费游戏脚本"
+	echo "38. 显示本机IP"
+	echo "39. 青龙面板一键脚本"
+    echo "40. Acme.sh一键申请证书"
+    echo "41. Screen后台运行管理脚本"
+    echo "42. 三网测速脚本"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -456,31 +457,29 @@ function start_menu(){
         17 ) bbronekey ;;
         18 ) ovzbbr ;;
         19 ) region ;;
-        20 ) netflixamd ;;
-        21 ) netflixarm ;;
-        22 ) warponekey ;;
-        23 ) acacia233 ;;
-        24 ) georgexie2333amd ;;
-        25 ) georgexie2333arm ;;
-        26 ) georgexie2333 ;;
-        27 ) fscarmen ;;
-        28 ) iptablesonekey ;;
-        29 ) socatonekey ;;
-        30 ) gostoneky ;;
-        31 ) brookonekey ;;
-        32 ) dockeronekey ;;
-        33 ) aapanel ;;
-        34 ) cxxmatrix ;;
-        35 ) rcloneonekey ;;
-        36 ) rulelist ;;
-        37 ) teamspeakonekey ;;
-        38 ) ssronekey ;;
-        39 ) epicgamesonekey ;;
-	    40 ) ipdetestonekey ;;
-	    41 ) qinglongonekey ;;
-        42 ) acmeonekey ;;
-        43 ) screenonekey ;;
-        44 ) chinaSpeedTest ;;
+        20 ) netflixdetect ;;
+        21 ) warponekey ;;
+        22 ) acacia233 ;;
+        23 ) georgexie2333onekey ;;
+        24 ) georgexie2333 ;;
+        25 ) fscarmen ;;
+        26 ) iptablesonekey ;;
+        27 ) socatonekey ;;
+        28 ) gostoneky ;;
+        29 ) brookonekey ;;
+        30 ) dockeronekey ;;
+        31 ) aapanel ;;
+        32 ) cxxmatrix ;;
+        33 ) rcloneonekey ;;
+        34 ) rulelist ;;
+        35 ) teamspeakonekey ;;
+        36 ) ssronekey ;;
+        37 ) epicgamesonekey ;;
+	    38 ) ipdetestonekey ;;
+	    39 ) qinglongonekey ;;
+        40 ) acmeonekey ;;
+        41 ) screenonekey ;;
+        42 ) chinaSpeedTest ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
