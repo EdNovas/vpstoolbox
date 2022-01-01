@@ -33,7 +33,7 @@ TG群：https://t.me/ednovas4
 
 ## 更新进程
 
-v 1.1.4 添加了三网测速脚本
+v 1.1.4 添加了三网测速脚本，优化了arm/amd等选项
 
 v 1.1.3 添加了screen和acme.sh脚本
 
