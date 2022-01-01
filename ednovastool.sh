@@ -4,8 +4,8 @@ changeLog="添加了screen和acme脚本"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
-hostnameVariable="hostname"
-
+hostnameVariable=`hostname`
+releaseVersion=`head -n 1 /etc/issue`
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -356,7 +356,7 @@ function start_menu(){
     yellow "当前VPS ip地址为：$getIpAddress"
     yellow "处理器架构：$arch"
     yellow "虚拟化架构：$virt"
-    yellow "操作系统：$release"
+    yellow "操作系统：$releaseVersion"
     yellow "内核版本：$kernelVer"
     echo "                        "
     echo "1. 修改登录为 root 密码登录"
