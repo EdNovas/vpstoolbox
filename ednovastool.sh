@@ -324,7 +324,7 @@ function chinaSpeedTest(){
     echo "1. 多线程"
     echo "2. 单线程"
     echo "0. 返回上级目录"
-    read -p "请输入选项（默认多线程）：" chinaSpeedTestChoice
+    read -p "请输入选项（直接回车为多线程）：" chinaSpeedTestChoice
     case "$chinaSpeedTestChoice" in
         1 )
             bash <(curl -sSL "https://github.com/CoiaPrant/Speedtest/raw/main/speedtest-multi.sh")
@@ -333,6 +333,9 @@ function chinaSpeedTest(){
             bash <(curl -sSL "https://github.com/CoiaPrant/Speedtest/raw/main/speedtest-single.sh")
         ;;
         0 ) start_menu ;;
+        * )
+            bash <(curl -sSL "https://github.com/CoiaPrant/Speedtest/raw/main/speedtest-multi.sh")
+        ;;
     esac
 }
 
