@@ -67,7 +67,8 @@ v 1.0.0 创建了该脚本
 
 ## 脚本
 
-![EdNovas VPS toolbox](https://user-images.githubusercontent.com/56779951/147845171-49e1f7f9-0f47-4f8b-8115-b73a7cd25d63.png)
+![Snipaste_2021-12-31_22-26-12](https://user-images.githubusercontent.com/56779951/147845173-bf7f7d92-2da6-4ab7-80fd-90e264fe6c75.png)
+
 
 screen后台运行管理脚本：https://github.com/Misaka-blog/screenManager
 
