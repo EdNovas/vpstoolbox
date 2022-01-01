@@ -488,7 +488,7 @@ function vpsBasic() {
     echo "                        "
     read -p "请输入选项:" partOneInput
     case "$partOneInput" in
-        1 ）rootLogin ;;
+        1 ) rootLogin ;;
         2 ) vpsupdate ;;
         3 ) oraclefirewall ;;
         4 ) centosfirewall ;;
