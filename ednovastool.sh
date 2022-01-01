@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.1.1"
-changeLog="移除superbench，添加VPS系统和架构信息"
+ver="1.1.2"
+changeLog="修复了一些bug"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
