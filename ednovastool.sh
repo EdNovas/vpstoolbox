@@ -175,7 +175,7 @@ function chinaSpeedTest(){
     echo "1. 多线程"
     echo "2. 单线程"
     echo "0. 返回上级目录"
-    read -p "请输入选项（直接回车为多线程）：" chinaSpeedTestChoice
+    read -p "请输入选项（直接回车为多线程) ：" chinaSpeedTestChoice
     case "$chinaSpeedTestChoice" in
         1 )
             bash <(curl -sSL "https://github.com/CoiaPrant/Speedtest/raw/main/speedtest-multi.sh")
@@ -530,7 +530,7 @@ function vpsPerformance(){
     echo "                        "
     read -p "请输入选项:" partTwoInput
     case "$partTwoInput" in
-        1 ）benchonekey ;;
+        1 ) benchonekey ;;
         2 ) superbench ;;
         3 ) lemonbench ;;
         4 ) chinaSpeedTest ;;
@@ -574,7 +574,7 @@ function proxyRelated(){
     echo "                        "
     read -p "请输入选项:" partThreeInput
     case "$partThreeInput" in
-        1 ）macka ;;
+        1 ) macka ;;
         2 ) xui ;;
         3 ) ssronekey ;;
         4 ) xrayronekey ;;
@@ -622,7 +622,7 @@ function mediaDetectionUnlock(){
     echo "                        "
     read -p "请输入选项:" partFourInput
     case "$partFourInput" in
-        1 ）region ;;
+        1 ) region ;;
         2 ) netflixdetect ;;
         3 ) warponekey ;;
         4 ) fscarmen ;;
@@ -664,7 +664,7 @@ function forwardonekey(){
     echo "                        "
     read -p "请输入选项:" partFiveInput
     case "$partFiveInput" in
-        1 ）iptablesonekey ;;
+        1 ) iptablesonekey ;;
         2 ) socatonekey ;;
         3 ) gostoneky ;;
         4 ) brookonekey ;;
@@ -704,7 +704,7 @@ function usefulTools(){
     echo "                        "
     read -p "请输入选项:" partSixInput
     case "$partSixInput" in
-        1 ）aapanel ;;
+        1 ) aapanel ;;
         2 ) dockeronekey ;;
         3 ) rcloneonekey ;;
         4 ) aria2onekey ;;
@@ -744,7 +744,7 @@ function interestingTools(){
     echo "                        "
     read -p "请输入选项:" partSevenInput
     case "$partSevenInput" in
-        1 ）cxxmatrix ;;
+        1 ) cxxmatrix ;;
         2 ) teamspeakonekey ;;
         3 ) epicgamesonekey ;;
         4 ) qinglongonekey ;;
@@ -828,7 +828,7 @@ function start_menu(){
     echo "                        "
     read -p "请输入选项:" menuNumberInput
     case "$menuNumberInput" in
-        1 ）vpsBasic ;;
+        1 ) vpsBasic ;;
         2 ) vpsPerformance ;;
         3 ) proxyRelated ;;
         4 ) mediaDetectionUnlock ;;
