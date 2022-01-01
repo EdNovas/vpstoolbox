@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.1.2"
-changeLog="修复了一些bug"
+ver="1.1.3"
+changeLog="添加了screen和acme脚本"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -318,7 +318,13 @@ function epicgamesonekey(){
     python3 main.py
 }
 
+function acmeonekey(){
+    wget -N https://cdn.jsdelivr.net/gh/Misaka-blog/acme1key@master/acme1key.sh && chmod -R 777 acme1key.sh && bash acme1key.sh
+}
 
+function screenonekey(){
+    wget -N https://cdn.jsdelivr.net/gh/Misaka-blog/screenManager@master/screen.sh && chmod -R 777 screen.sh && bash screen.sh
+}
 
 function qinglongonekey(){
 	curl -fsSL https://get.docker.com/ | sh
@@ -401,6 +407,8 @@ function start_menu(){
     echo "39. Epic Games自动领取每周免费游戏脚本"
 	echo "40. 显示本机IP"
 	echo "41. 青龙面板一键脚本"
+    echo "42. Acme.sh一键申请证书"
+    echo "43. Screen后台运行管理脚本"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -448,6 +456,8 @@ function start_menu(){
         39 ) epicgamesonekey ;;
 	    40 ) ipdetestonekey ;;
 	    41 ) qinglongonekey ;;
+        42 ) acmeonekey ;;
+        43 ) screenonekey ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
