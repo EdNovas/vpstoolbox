@@ -5,7 +5,6 @@ arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
 hostnameVariable=`hostname`
-releaseVersion=`head -n 1 /etc/issue`
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -353,10 +352,11 @@ function start_menu(){
     yellow "更新(Updates): $changeLog"
     echo "                        "
     yellow "======检测到VPS信息如下======"
-    yellow "当前VPS ip地址为：$getIpAddress"
+    yellow "ip地址：$getIpAddress"
+	yellow "主机名：$hostnameVariable"
     yellow "处理器架构：$arch"
     yellow "虚拟化架构：$virt"
-    yellow "操作系统：$releaseVersion"
+    yellow "操作系统：$release"
     yellow "内核版本：$kernelVer"
     echo "                        "
     echo "1. 修改登录为 root 密码登录"
