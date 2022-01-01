@@ -17,56 +17,56 @@ yellow(){
 
 
 if [[ -f /etc/redhat-release ]]; then
-release="Centos"
-elif cat /etc/issue | grep -q -E -i "debian"; then
-release="Debian"
-elif cat /etc/issue | grep -q -E -i "ubuntu"; then
-release="Ubuntu"
-elif cat /etc/issue | grep -q -E -i "centos|red hat|redhat"; then
-release="Centos"
-elif cat /proc/version | grep -q -E -i "debian"; then
-release="Debian"
-elif cat /proc/version | grep -q -E -i "ubuntu"; then
-release="Ubuntu"
-elif cat /proc/version | grep -q -E -i "centos|red hat|redhat"; then
-release="Centos"
+    release="Centos"
+    elif cat /etc/issue | grep -q -E -i "debian"; then
+    release="Debian"
+    elif cat /etc/issue | grep -q -E -i "ubuntu"; then
+    release="Ubuntu"
+    elif cat /etc/issue | grep -q -E -i "centos|red hat|redhat"; then
+    release="Centos"
+    elif cat /proc/version | grep -q -E -i "debian"; then
+    release="Debian"
+    elif cat /proc/version | grep -q -E -i "ubuntu"; then
+    release="Ubuntu"
+    elif cat /proc/version | grep -q -E -i "centos|red hat|redhat"; then
+    release="Centos"
 else 
-red "不支持你当前系统，请使用Ubuntu,Debian,Centos系统"
-rm -f ednovastool.sh
-exit 1
+    red "不支持你当前系统，请使用Ubuntu,Debian,Centos系统"
+    rm -f ednovastool.sh
+    exit 1
 fi
 
 if ! type curl >/dev/null 2>&1; then 
 yellow "检测到curl未安装，安装中 "
 if [ $release = "Centos" ]; then
-yum -y update && yum install curl -y
+    yum -y update && yum install curl -y
 else
-apt-get update -y && apt-get install curl -y
+    apt-get update -y && apt-get install curl -y
 fi	   
 else
-green "curl已安装"
+    green "curl已安装"
 fi
 
 if ! type wget >/dev/null 2>&1; then 
 yellow "检测到wget未安装，安装中 "
 if [ $release = "Centos" ]; then
-yum -y update && yum install wget -y
+    yum -y update && yum install wget -y
 else
-apt-get update -y && apt-get install wget -y
+    apt-get update -y && apt-get install wget -y
 fi	   
 else
-green "wget已安装"
+    green "wget已安装"
 fi
 
 if ! type sudo >/dev/null 2>&1; then 
 yellow "检测到sudo未安装，安装中 "
 if [ $release = "Centos" ]; then
-yum -y update && yum install sudo -y
+    yum -y update && yum install sudo -y
 else
-apt-get update -y && apt-get install sudo -y
+    apt-get update -y && apt-get install sudo -y
 fi	   
 else
-green "sudo已安装"
+    green "sudo已安装"
 fi
 
 
@@ -83,7 +83,7 @@ function ipdetestonekey(){
 }
 
 function Get_Ip_Address(){
-	getIpAddress=$(curl -sS --connect-timeout 10 -m 60 https://www.aapanel.com/api/common/getClientIP)
+	getIpAddress=$(curl https://ip.gs)
 	echo "IP地址为 $getIpAddress"
 }
 
@@ -166,9 +166,13 @@ function gostonekey(){
 }
 
 function teamspeakonekey(){
+    if [ $release = "Centos" ]; then
+        yum install vim wget perl tar net-tools bzip2 -y
+    else
+        apt install vim wget perl tar net-tools bzip2 -y
+    fi
     cd /home
     wget https://files.teamspeak-services.com/releases/server/3.13.6/teamspeak3-server_linux_amd64-3.13.6.tar.bz2
-    yum install vim wget perl tar net-tools bzip2 -y
     tar -xjvf teamspeak3-server_linux_amd64-3.13.6.tar.bz2
     mkdir teamspeak
     mv  teamspeak3-server_linux_amd64/* teamspeak
@@ -252,10 +256,19 @@ function mtproxyonekey(){
 }
 
 function aria2onekey(){
-    apt install wget curl ca-certificates && wget -N git.io/aria2.sh && chmod +x aria2.sh && ./aria2.sh
+    if [ $release = "Centos" ]; then
+        yum install wget curl ca-certificates && wget -N git.io/aria2.sh && chmod +x aria2.sh && ./aria2.sh
+    else
+        apt install wget curl ca-certificates && wget -N git.io/aria2.sh && chmod +x aria2.sh && ./aria2.sh
+    fi
 }
 
 function fscarmen(){
+    if [ $release = "Centos" ]; then
+        yum install screen -y
+    else
+        apt install screen -y
+    fi
     yellow "这是在'warp'的screen中，如需退出按ctrl+a+d，返回'screen -r warp'"
     screen -R warp && warp i
 }
@@ -273,8 +286,13 @@ function georgexie2333arm(){
 }
 
 function cxxmatrix(){
-    sudo apt install make
-    sudo apt install g++ -y
+    if [ $release = "Centos" ]; then
+        sudo yum install make
+        sudo yum install g++ -y
+    else
+        sudo apt install make
+        sudo apt install g++ -y
+    fiif [ $release = "Centos" ]; then
     cd /home
     git clone https://github.com/akinomyoga/cxxmatrix.git
     cd cxxmatrix
@@ -287,7 +305,11 @@ function rcloneonekey(){
 }
 
 function epicgamesonekey(){
-    apt install python3-pip -y
+    if [ $release = "Centos" ]; then
+        yum install python3-pip -y
+    else
+        apt install python3-pip -y
+    fi
     cd /home
     git clone -b main https://github.com/luminoleon/epicgames-claimer.git
     cd epicgames-claimer
@@ -424,8 +446,8 @@ function start_menu(){
         37 ) teamspeakonekey ;;
         38 ) ssronekey ;;
         39 ) epicgamesonekey ;;
-	40 ) ipdetestonekey ;;
-	41 ) qinglongonekey ;;
+	    40 ) ipdetestonekey ;;
+	    41 ) qinglongonekey ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
