@@ -5,6 +5,7 @@ arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
 hostnameVariable=`hostname`
+releaseVersion=`head -n 1 /etc/issue`
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -318,6 +319,23 @@ function epicgamesonekey(){
     python3 main.py
 }
 
+function chinaSpeedTest(){
+    green "单线程/双线程三网测速"
+    echo "1. 多线程"
+    echo "2. 单线程"
+    echo "0. 返回上级目录"
+    read -p "请输入选项（默认多线程）：" chinaSpeedTestChoice
+    case "$chinaSpeedTestChoice" in
+        1 )
+            bash <(curl -sSL "https://github.com/CoiaPrant/Speedtest/raw/main/speedtest-multi.sh")
+        ;;
+        2 ) 
+            bash <(curl -sSL "https://github.com/CoiaPrant/Speedtest/raw/main/speedtest-single.sh")
+        ;;
+        0 ) start_menu ;;
+    esac
+}
+
 function acmeonekey(){
     wget -N https://cdn.jsdelivr.net/gh/Misaka-blog/acme1key@master/acme1key.sh && chmod -R 777 acme1key.sh && bash acme1key.sh
 }
@@ -352,11 +370,10 @@ function start_menu(){
     yellow "更新(Updates): $changeLog"
     echo "                        "
     yellow "======检测到VPS信息如下======"
-    yellow "ip地址：$getIpAddress"
-	yellow "主机名：$hostnameVariable"
+    yellow "当前VPS ip地址为：$getIpAddress"
     yellow "处理器架构：$arch"
     yellow "虚拟化架构：$virt"
-    yellow "操作系统：$release"
+    yellow "操作系统：$releaseVersion"
     yellow "内核版本：$kernelVer"
     echo "                        "
     echo "1. 修改登录为 root 密码登录"
@@ -410,6 +427,7 @@ function start_menu(){
 	echo "41. 青龙面板一键脚本"
     echo "42. Acme.sh一键申请证书"
     echo "43. Screen后台运行管理脚本"
+    echo "44. 三网测速脚本"
     echo "                        "
     echo "v. 更新脚本"
     echo "0. 退出脚本"
@@ -459,6 +477,7 @@ function start_menu(){
 	    41 ) qinglongonekey ;;
         42 ) acmeonekey ;;
         43 ) screenonekey ;;
+        44 ) chinaSpeedTest ;;
         v ) updateScript ;;
         0 ) exit 0 ;;
     esac
