@@ -4,6 +4,8 @@ changeLog="添加了screen和acme脚本"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
+hostnameVariable="hostname"
+
 
 green(){
     echo -e "\033[32m\033[01m$1\033[0m"
@@ -84,7 +86,6 @@ function ipdetestonekey(){
 
 function Get_Ip_Address(){
 	getIpAddress=$(curl https://ip.gs)
-	echo "IP地址为 $getIpAddress"
 }
 
 function warponekey(){
@@ -292,7 +293,7 @@ function cxxmatrix(){
     else
         sudo apt install make
         sudo apt install g++ -y
-    fiif [ $release = "Centos" ]; then
+    fi
     cd /home
     git clone https://github.com/akinomyoga/cxxmatrix.git
     cd cxxmatrix
