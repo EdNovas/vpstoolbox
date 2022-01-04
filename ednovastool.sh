@@ -87,12 +87,8 @@ function ddonekey(){
 }
 
 function closeipv6(){
-    sed -i '/net.ipv6.conf.all.disable_ipv6/d' /etc/sysctl.conf
-    sed -i '/net.ipv6.conf.default.disable_ipv6/d' /etc/sysctl.conf
-    cat >> /etc/sysctl.conf << EOF
-    net.ipv6.conf.all.disable_ipv6=1
-    net.ipv6.conf.default.disable_ipv6=1
-    EOF
+    sed -i "\$anet.ipv6.conf.all.disable_ipv6=1" /etc/sysctl.conf
+    sed -i "\$anet.ipv6.conf.default.disable_ipv6=1" /etc/sysctl.conf
     sysctl -p && sysctl --system
 }
 
