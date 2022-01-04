@@ -523,7 +523,7 @@ function vpsBasic() {
     echo "3. 甲骨文关闭防火墙"
     echo "4. Centos关闭防火墙"
     echo "5. 关闭IPV6"
-    echo "6. 打开IPV6“
+    echo "6. 打开IPV6"
     echo "7. 修改主机名"
     echo "8. 修改SSH连接端口"
     echo "9. 显示本机IP"
