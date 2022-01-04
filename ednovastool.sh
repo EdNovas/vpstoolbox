@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.2.0"
-changeLog="添加了二级目录，加入了内存信息查看，程序实时占用，硬盘占用查询"
+ver="1.2.1"
+changeLog="添加了一键DD脚本，更改ssh端口，关闭/打开ipv6"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -81,6 +81,53 @@ function Get_Ip_Address(){
 
 
 # ==============part1=============
+
+function ddonekey(){
+    wget --no-check-certificate -O AutoReinstall.sh https://git.io/betags && chmod a+x AutoReinstall.sh && bash AutoReinstall.sh
+}
+
+function closeipv6(){
+    sed -i '/net.ipv6.conf.all.disable_ipv6/d' /etc/sysctl.conf
+    sed -i '/net.ipv6.conf.default.disable_ipv6/d' /etc/sysctl.conf
+    cat >> /etc/sysctl.conf << EOF
+    net.ipv6.conf.all.disable_ipv6=1
+    net.ipv6.conf.default.disable_ipv6=1
+    EOF
+    sysctl -p && sysctl --system
+}
+
+function openipv6(){
+    sudo sed -i 's/net.ipv6.conf.all.disable_ipv6=1/#net.ipv6.conf.all.disable_ipv6=1/g' /etc/sysctl.conf
+    sudo sed -i 's/net.ipv6.conf.default.disable_ipv6=1/#net.ipv6.conf.default.disable_ipv6=1/g' /etc/sysctl.conf
+}
+
+function changesshport(){
+    green "请输入你要更改为的ssh端口(1024-65535)"
+    read -p "请输入你要更改为的ssh端口(1024-65535):" changedsshport
+    if [$changedsshport < 1024 ||]
+    then
+        read -p "输入不合法，请重新输入你要更改的ssh端口(1024-65535)：" changedsshport
+    fi
+
+    if [ -e "/etc/ssh/sshd_config" ];then
+    [ -z "`grep ^Port /etc/ssh/sshd_config`" ] && ssh_port=22 || ssh_port=`grep ^Port /etc/ssh/sshd_config | awk '{print $2}'`
+    while :; do echo
+        read -p "请输入你要更改为的端口，端口范围为1025-65534(默认: $ssh_port): " SSH_PORT
+        [ -z "$SSH_PORT" ] && SSH_PORT=$ssh_port
+        if [ $SSH_PORT -eq 22 >/dev/null 2>&1 -o $SSH_PORT -gt 1024 >/dev/null 2>&1 -a $SSH_PORT -lt 65535 >/dev/null 2>&1 ];then
+            break
+        else
+            echo "${CWARNING}不合法的输入！端口范围: 22,1025~65534${CEND}"
+        fi
+    done
+ 
+    if [ -z "`grep ^Port /etc/ssh/sshd_config`" -a "$SSH_PORT" != '22' ];then
+        sed -i "s@^#Port.*@&\nPort $SSH_PORT@" /etc/ssh/sshd_config
+    elif [ -n "`grep ^Port /etc/ssh/sshd_config`" ];then
+        sed -i "s@^Port.*@Port $SSH_PORT@" /etc/ssh/sshd_config
+    fi
+fi
+}
 
 function rootLogin(){
     wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/root.sh && chmod -R 755 root.sh && bash root.sh
@@ -479,11 +526,15 @@ function vpsBasic() {
     echo "2. VPS系统更新"
     echo "3. 甲骨文关闭防火墙"
     echo "4. Centos关闭防火墙"
-    echo "5. 修改主机名"
-    echo "6. 显示本机IP"
-    echo "7. 显示实时进程"
-    echo "8. 显示内存使用情况"
-    echo "9. 显示磁盘占用"
+    echo "5. 关闭IPV6"
+    echo "6. 打开IPV6“
+    echo "7. 修改主机名"
+    echo "8. 修改SSH连接端口"
+    echo "9. 显示本机IP"
+    echo "10. 显示实时进程"
+    echo "11. 显示内存使用情况"
+    echo "12. 显示磁盘占用"
+    echo "13. 一键DD脚本"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
@@ -492,11 +543,15 @@ function vpsBasic() {
         2 ) vpsupdate ;;
         3 ) oraclefirewall ;;
         4 ) centosfirewall ;;
-        5 ) changehostname ;;
-        6 ) driveSpace ;;
-        7 ) interestingTools ;;
-        8 ) memorySpace ;;
-        9 ) realTimeProgress ;;
+        5 ) closeipv6 ;;
+        6 ) openipv6 ;;
+        7 ) changehostname ;;
+        8 ) changesshport ;;
+        9 ) driveSpace ;;
+        10 ) interestingTools ;;
+        11 ) memorySpace ;;
+        12 ) realTimeProgress ;;
+        13 ) ddonekey ;;
         0 ) start_menu ;;
     esac
 }
