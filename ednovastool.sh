@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.2.1"
-changeLog="添加了一键DD脚本，更改ssh端口，关闭/打开ipv6"
+ver="1.2.2"
+changeLog="添加了speedtest-cli一键测速脚本"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
