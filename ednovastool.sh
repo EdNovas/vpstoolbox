@@ -197,6 +197,12 @@ function realTimeProgress(){
 
 # ==============part2=============
 
+function speedtest-clionekey(){
+	wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+	chmod +x speedtest-cli
+	./speedtest-cli --share
+}
+
 function benchonekey(){
     wget -qO- bench.sh | bash
 }
@@ -577,6 +583,7 @@ function vpsPerformance(){
     echo "2. SuperBench VPS检测脚本"
     echo "3. LemonBench VPS检测脚本"
     echo "4. 三网测速脚本"
+	echo "5. Speedtest-cli一键测速"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partTwoInput
@@ -585,6 +592,7 @@ function vpsPerformance(){
         2 ) superbench ;;
         3 ) lemonbench ;;
         4 ) chinaSpeedTest ;;
+		5 ) speedtest-clionekey ;;
         0 ) start_menu ;;
     esac
 }
