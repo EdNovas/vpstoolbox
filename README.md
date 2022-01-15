@@ -13,7 +13,7 @@
 最新版：
 
 ```
-wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
+wget -N https://raw.githubusercontent.com/ednovas/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
 ```
 
 稳定版：
