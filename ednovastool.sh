@@ -198,6 +198,11 @@ function realTimeProgress(){
 # ==============part2=============
 
 function speedtest-clionekey(){
+	if [ $release = "Centos" ]; then
+        	yum install python
+   	 else
+        	apt install python
+    	fi
 	wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
 	chmod +x speedtest-cli
 	./speedtest-cli --share
