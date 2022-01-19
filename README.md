@@ -34,6 +34,8 @@ TG群：https://t.me/ednovas4
 
 ## 更新进程
 
+v 1.2.3 添加了p3trex warp脚本
+
 v 1.2.2 添加了speedtest-cli一键测速脚本
 
 v 1.2.1 添加了一键DD脚本，更改ssh端口，关闭/打开ipv6
