@@ -10,7 +10,7 @@
 
 ## 脚本
 
-最新版(脚本已使用jsdelivr cdn，支持纯ipv6访问)：
+最新版(该一键脚本已使用jsdelivr cdn，支持纯ipv6访问)：
 
 ```
 wget -N https://cdn.jsdelivr.net/gh/ednovas/vpstoolbox@main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
