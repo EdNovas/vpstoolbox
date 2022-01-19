@@ -318,14 +318,8 @@ function warponekey(){
     wget -N https://cdn.jsdelivr.net/gh/fscarmen/warp/menu.sh && bash menu.sh
 }
 
-function fscarmen(){
-    if [ $release = "Centos" ]; then
-        yum install screen -y
-    else
-        apt install screen -y
-    fi
-    yellow "这是在'warp'的screen中，如需退出按ctrl+a+d，返回'screen -r warp'"
-    screen -R warp && warp i
+function p3trexwarp(){
+    bash <(curl -fsSL git.io/warp.sh) [install]
 }
 
 function acacia233(){
@@ -678,7 +672,7 @@ function mediaDetectionUnlock(){
     echo "2. 奈飞检测脚本"
     echo "                  "
     echo "3. fscarmen warp一键脚本"
-    echo "4. fscarmen warp刷IP脚本"
+    echo "4. p3trex warp一键脚本"
     echo "5. acacia233 warp解锁奈飞脚本"
     echo "6. GeorgeXie2333 warp解锁奈飞脚本"
     echo "7. GeorgeXie2333 warp刷IP脚本"
@@ -689,7 +683,7 @@ function mediaDetectionUnlock(){
         1 ) region ;;
         2 ) netflixdetect ;;
         3 ) warponekey ;;
-        4 ) fscarmen ;;
+        4 ) p3trexwarp ;;
         5 ) acacia233 ;;
         6 ) georgexie2333onekey ;;
         7 ) georgexie2333 ;;
