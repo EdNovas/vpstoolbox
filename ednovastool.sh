@@ -548,10 +548,10 @@ function vpsBasic() {
         6 ) openipv6 ;;
         7 ) changehostname ;;
         8 ) changesshport ;;
-        9 ) driveSpace ;;
-        10 ) interestingTools ;;
+        9 ) ipdetestonekey ;;
+        10 ) realTimeProgress ;;
         11 ) memorySpace ;;
-        12 ) realTimeProgress ;;
+        12 ) driveSpace ;;
         13 ) ddonekey ;;
         0 ) start_menu ;;
     esac
