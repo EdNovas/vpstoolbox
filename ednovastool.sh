@@ -83,22 +83,49 @@ function Get_Ip_Address(){
 # ==============part1=============
 
 function ddonekey(){
-	if [ $release = "Centos" ]; then
-        yum install -y xz openssl gawk file glibc-common wget screen && screen -S os
-    else
-        apt-get install -y xz-utils openssl gawk file wget screen && screen -S os
-    fi
 	green "重装的系统说明："
-	echo ""
-	read -p "我已保存好默认root密码，并了解重装后VPS所有内容将会被清除：(y)" agreementkey
-    if [$agreementkey="y"]
-	then 
-		wget --no-check-certificate -O AutoReinstall.sh https://git.io/betags && chmod a+x AutoReinstall.sh && bash AutoReinstall.sh
-	elif [$agreementkey="Y"]
-	then
-		wget --no-check-certificate -O AutoReinstall.sh https://git.io/betags && chmod a+x AutoReinstall.sh && bash AutoReinstall.sh
-	fi
-    
+	echo "1、CentOS 7.7 (已关闭防火墙及SELinux，默认密码Pwd@CentOS)
+2、CentOS 7 (默认密码cxthhhhh.com)
+3、CentOS 8 (默认密码cxthhhhh.com)
+4、CentOS 6 (默认密码Minijer.com)
+5、Debian 11 (默认密码Minijer.com)
+6、Debian 10 (默认密码Minijer.com)
+7、Debian 9 (默认密码Minijer.com)
+8、Debian 8 (默认密码Minijer.com)
+9、Ubuntu 20.04 (默认密码Minijer.com)
+10、Ubuntu 18.04 (默认密码Minijer.com)
+11、Ubuntu 16.04 (默认密码Minijer.com)
+12、Windows Server 2019 (默认密码cxthhhhh.com)
+13、Windows Server 2016 (默认密码cxthhhhh.com)
+14、Windows Server 2012 (默认密码cxthhhhh.com)
+15、Windows Server 2012 Lite (默认密码nat.ee)
+16、Windows Server 2008 (默认密码cxthhhhh.com)
+17、Windows Server 2008 Lite (默认密码nat.ee)
+18、Windows Server 2003 (默认密码cxthhhhh.com)
+19、Windows Server 2003 Lite (默认密码WinSrv2003x86-Chinese)
+20、Windows 10 LTSC Lite (默认密码www.nat.ee)
+21、Windows 7 x86 Lite (默认密码Windows7x86-Chinese)
+22、Windows 7 Ent Lite (默认密码nat.ee)
+23、Windows 7 Ent Lite (UEFI支持甲骨文)(默认密码nat.ee)
+24、Windows Server 2008 Lite (UEFI支持甲骨文)(默认密码nat.ee)
+25、Windows Server 2012 Lite (UEFI支持甲骨文)(默认密码nat.ee)
+99、自定义镜像"
+	read -r -p "我已保存好默认root密码，并了解重装后VPS所有内容将会被清除[Y/n] " input
+ 
+	case $input in
+	    [yY][eE][sS]|[yY])
+	        wget --no-check-certificate -O AutoReinstall.sh https://git.io/betags && chmod a+x AutoReinstall.sh && bash AutoReinstall.sh
+	        ;;
+	 
+	    [nN][oO]|[nN])
+	        vpsBasic
+	           ;;
+	 
+	    *)
+	        echo "Invalid input..."
+	        vpsBasic
+	        ;;
+	esac
 }
 
 function closeipv6(){
