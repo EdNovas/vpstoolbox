@@ -34,6 +34,8 @@ TG群：https://t.me/ednovas4
 
 ## 更新进程
 
+v 1.2.4 添加了显示一键DD脚本密码
+
 v 1.2.3 添加了p3trex warp脚本
 
 v 1.2.2 添加了speedtest-cli一键测速脚本
@@ -76,6 +78,7 @@ v 1.0.0 创建了该脚本
 
 ![Snipaste_2021-12-31_22-26-12](https://user-images.githubusercontent.com/56779951/147845173-bf7f7d92-2da6-4ab7-80fd-90e264fe6c75.png)
 
+一键DD脚本：https://github.com/fcurrk/reinstall 使用教程：https://git.beta.gs/
 
 screen后台运行管理脚本：https://github.com/Misaka-blog/screenManager
 
