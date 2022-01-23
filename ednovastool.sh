@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.2.3"
-changeLog="添加了p3trex warp脚本"
+ver="1.2.4"
+changeLog="添加了显示一键DD脚本密码"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -531,7 +531,7 @@ function reallyNothing(){
 
 # ==============part9=============
 function updateScript(){
-    wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
+    wget -N https://raw.githubusercontent.com/ednovas/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
 }
 # ==============part9=============
 
