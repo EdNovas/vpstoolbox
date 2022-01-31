@@ -361,7 +361,7 @@ function warponekey(){
 }
 
 function p3trexwarp(){
-    bash <(curl -fsSL git.io/warp.sh) [install]
+    bash <(curl -fsSL git.io/warp.sh) install
 }
 
 function acacia233(){
