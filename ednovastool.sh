@@ -243,6 +243,7 @@ function speedtest-clionekey(){
 	if [ $release = "Centos" ]; then
         	curl -s https://install.speedtest.net/app/cli/install.rpm.sh | sudo bash
 		sudo yum install speedtest
+		speedtest
    	 else
         	curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 		sudo apt-get install speedtest
