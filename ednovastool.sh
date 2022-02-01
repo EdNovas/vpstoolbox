@@ -241,13 +241,13 @@ function realTimeProgress(){
 
 function speedtest-clionekey(){
 	if [ $release = "Centos" ]; then
-        	yum install python -y
+        	curl -s https://install.speedtest.net/app/cli/install.rpm.sh | sudo bash
+		sudo yum install speedtest
    	 else
-        	apt install python -y
+        	curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
+		sudo apt-get install speedtest
+		speedtest
     	fi
-	wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
-	chmod +x speedtest-cli
-	./speedtest-cli --share
 }
 
 function benchonekey(){
