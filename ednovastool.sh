@@ -198,6 +198,12 @@ function oraclefirewall(){
     fi
 }
 
+function synctime(){
+	yum -y install ntpdate
+	ntpdate -u  pool.ntp.org
+	date
+}
+
 function centosfirewall(){
     systemctl stop firewalld
     systemctl disable firewalld
@@ -579,6 +585,7 @@ function vpsBasic() {
     echo "11. 显示内存使用情况"
     echo "12. 显示磁盘占用"
     echo "13. 一键DD脚本"
+	echo "14. 同步系统时间"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
@@ -596,6 +603,7 @@ function vpsBasic() {
         11 ) memorySpace ;;
         12 ) driveSpace ;;
         13 ) ddonekey ;;
+		14 ) synctime ;;
         0 ) start_menu ;;
     esac
 }
