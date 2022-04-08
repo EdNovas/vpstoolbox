@@ -280,25 +280,7 @@ function lemonbench(){
     curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s fast
 }
 
-function chinaSpeedTest(){
-    green "单线程/双线程三网测速"
-    echo "1. 多线程"
-    echo "2. 单线程"
-    echo "0. 返回上级目录"
-    read -p "请输入选项（直接回车为多线程) ：" chinaSpeedTestChoice
-    case "$chinaSpeedTestChoice" in
-        1 )
-            bash <(curl -sSL "https://github.com/CoiaPrant/Speedtest/raw/main/speedtest-multi.sh")
-        ;;
-        2 ) 
-            bash <(curl -sSL "https://github.com/CoiaPrant/Speedtest/raw/main/speedtest-single.sh")
-        ;;
-        0 ) start_menu ;;
-        * )
-            bash <(curl -sSL "https://github.com/CoiaPrant/Speedtest/raw/main/speedtest-multi.sh")
-        ;;
-    esac
-}
+
 # ==============part2=============
 
 
@@ -639,8 +621,7 @@ function vpsPerformance(){
     echo "1. Bench VPS检测脚本"
     echo "2. SuperBench VPS检测脚本"
     echo "3. LemonBench VPS检测脚本"
-    echo "4. 三网测速脚本"
-	echo "5. Speedtest-cli一键测速"
+	echo "4. Speedtest-cli一键测速"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partTwoInput
@@ -648,8 +629,7 @@ function vpsPerformance(){
         1 ) benchonekey ;;
         2 ) superbench ;;
         3 ) lemonbench ;;
-        4 ) chinaSpeedTest ;;
-		5 ) speedtest-clionekey ;;
+		4 ) speedtest-clionekey ;;
         0 ) start_menu ;;
     esac
 }
