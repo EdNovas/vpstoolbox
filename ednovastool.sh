@@ -199,9 +199,15 @@ function oraclefirewall(){
 }
 
 function synctime(){
-	yum -y install ntpdate
-	ntpdate -u  pool.ntp.org
-	date
+	if [ $release = "Centos" ]; then
+		yum -y install ntpdate
+		ntpdate -u  pool.ntp.org
+		date
+	    else
+		apt -y install ntpdate
+		ntpdate -u  pool.ntp.org
+		date
+	    fi
 }
 
 function centosfirewall(){
@@ -234,6 +240,7 @@ function memorySpace(){
 
 function realTimeProgress(){
     green "ctrl + c 退出"
+    sleep 2
     top
 }
 
