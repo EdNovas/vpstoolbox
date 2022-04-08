@@ -410,6 +410,10 @@ function georgexie2333onekey(){
         curl -sL https://raw.githubusercontent.com/GeorgeXie2333/Project-WARP-Unlock/main/run.sh | bash
     fi
 }
+
+function tiktokcheck(){
+	wget https://github.com/lmc999/TikTokCheck/raw/main/t.sh.x
+}
 # ==============part4=============
 
 
@@ -752,6 +756,7 @@ function mediaDetectionUnlock(){
     echo "5. acacia233 warp解锁奈飞脚本"
     echo "6. GeorgeXie2333 warp解锁奈飞脚本"
     echo "7. GeorgeXie2333 warp刷IP脚本"
+    echo "8. Tiktok区域检测脚本"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partFourInput
@@ -763,6 +768,7 @@ function mediaDetectionUnlock(){
         5 ) acacia233 ;;
         6 ) georgexie2333onekey ;;
         7 ) georgexie2333 ;;
+	8 ) tiktokcheck ;;
         0 ) start_menu ;;
     esac
 }
