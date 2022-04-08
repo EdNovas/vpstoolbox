@@ -198,17 +198,7 @@ function oraclefirewall(){
     fi
 }
 
-function synctime(){
-	if [ $release = "Centos" ]; then
-		yum -y install ntpdate
-		ntpdate -u  pool.ntp.org
-		date
-	    else
-		apt -y install ntpdate
-		ntpdate -u  pool.ntp.org
-		date
-	    fi
-}
+
 
 function centosfirewall(){
     systemctl stop firewalld
@@ -242,6 +232,50 @@ function realTimeProgress(){
     green "ctrl + c 退出"
     sleep 2
     top
+}
+
+function synctime(){
+	if [ $release = "Centos" ]; then
+		yum -y install ntpdate
+		ntpdate -u  pool.ntp.org
+		date
+	    else
+		apt -y install ntpdate
+		ntpdate -u  pool.ntp.org
+		date
+	    fi
+}
+
+function changednscn(){
+	echo -e "options timeout:1 attempts:1 rotate\nnameserver 223.5.5.5\nnameserver 119.29.29.29">/etc/resolv.conf;
+	cat /etc/resolv.conf
+}
+
+function changednsgoogle(){
+	echo -e "options timeout:1 attempts:1 rotate\nnameserver 8.8.8.8\nnameserver 8.8.4.4" >/etc/resolv.conf;
+	cat /etc/resolv.conf
+}
+
+function changednscombine(){
+	echo -e "options timeout:1 attempts:1 rotate\nnameserver 223.5.5.5\nnameserver 8.8.4.4" >/etc/resolv.conf;
+	cat /etc/resolv.conf
+}
+
+function changedns(){
+	echo "1. Google DNS"
+	echo "2. CloudFlare DNS"
+	echo "3. 国内阿里&腾讯 DNS"
+	echo "4. 国内阿里&国外腾讯 DNS"
+	echo "0. 反回上一级"
+	echo "                        "
+    	read -p "请输入选项:" dnschanges
+	case "$dnschanges" in
+		1 ) changednsgoogle ;;
+		2 ) changednscf ;;
+		3 ) changednscn ;;
+		4 ) changednscombine ;;
+		0 ) vpsBasic ;;
+	esac
 }
 
 # ==============part1=============
@@ -575,6 +609,7 @@ function vpsBasic() {
     echo "12. 显示磁盘占用"
     echo "13. 一键DD脚本"
 	echo "14. 同步系统时间"
+	echo "15. 修改系统DNS"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
@@ -592,10 +627,13 @@ function vpsBasic() {
         11 ) memorySpace ;;
         12 ) driveSpace ;;
         13 ) ddonekey ;;
-		14 ) synctime ;;
+	14 ) synctime ;;
+	15 ) changedns ;;
         0 ) start_menu ;;
     esac
 }
+
+
 
 # part 2
 function vpsPerformance(){
