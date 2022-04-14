@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.2.4"
-changeLog="添加了显示一键DD脚本密码"
+ver="1.2.5"
+changeLog="添加一键SWAP，禁ping，改变DNS脚本，同步系统时间"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -270,6 +270,43 @@ function changedns(){
 	echo "                        "
     	read -p "请输入选项:" dnschanges
 	case "$dnschanges" in
+		1 ) changednsgoogle ;;
+		2 ) changednscf ;;
+		3 ) changednscn ;;
+		4 ) changednscombine ;;
+		0 ) vpsBasic ;;
+	esac
+}
+
+function addswap(){
+	wget https://www.moerats.com/usr/shell/swap.sh && bash swap.sh
+}
+
+function nopingin(){
+	iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP
+}
+
+function yespingin(){
+	iptables -D INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP
+}
+
+function nopinginout(){
+	echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
+}
+
+function yespinginout(){
+	echo 0 > /proc/sys/net/ipv4/icmp_echo_ignore_all
+}
+
+function noping(){
+	echo "1. 禁ping入"
+	echo "2. 恢复ping入"
+	echo "3. 禁ping入和出"
+	echo "4. 恢复ping入和出"
+	echo "0. 反回上一级"
+	echo "                        "
+    	read -p "请输入选项:" nopingswitch
+	case "$nopingswitch" in
 		1 ) changednsgoogle ;;
 		2 ) changednscf ;;
 		3 ) changednscn ;;
@@ -614,6 +651,7 @@ function vpsBasic() {
     echo "13. 一键DD脚本"
 	echo "14. 同步系统时间"
 	echo "15. 修改系统DNS"
+	echo "16. 一键添加SWAP"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
@@ -633,6 +671,7 @@ function vpsBasic() {
         13 ) ddonekey ;;
 	14 ) synctime ;;
 	15 ) changedns ;;
+	16 ) addswap ;;
         0 ) start_menu ;;
     esac
 }
