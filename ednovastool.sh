@@ -531,7 +531,7 @@ function epicgamesonekey(){
         apt install python3-pip -y
     fi
     cd /home
-    git clone -b main https://github.com/luminoleon/epicgames-claimer.git
+    git clone -b main https://github.com/EdNovas/epicgames.git
     cd epicgames-claimer
     pip3 install -r requirements.txt
     sudo sh install_dependencies.sh
