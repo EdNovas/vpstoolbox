@@ -315,6 +315,10 @@ function noping(){
 	esac
 }
 
+function cloudflareddns(){
+	curl https://raw.githubusercontent.com/aipeach/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /root/cf-v4-ddns.sh && chmod +x /root/cf-v4-ddns.sh
+}
+
 # ==============part1=============
 
 
@@ -652,6 +656,7 @@ function vpsBasic() {
 	echo "14. 同步系统时间"
 	echo "15. 修改系统DNS"
 	echo "16. 一键添加SWAP"
+	echo "17. Cloudflare DDNS解析"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
@@ -672,6 +677,7 @@ function vpsBasic() {
 	14 ) synctime ;;
 	15 ) changedns ;;
 	16 ) addswap ;;
+	17 ) cloudflareddns ;;
         0 ) start_menu ;;
     esac
 }
