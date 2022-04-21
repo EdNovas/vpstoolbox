@@ -317,6 +317,9 @@ function noping(){
 
 function cloudflareddns(){
 	curl https://raw.githubusercontent.com/aipeach/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /root/cf-v4-ddns.sh && chmod +x /root/cf-v4-ddns.sh
+	read -p "请输入你的Cloudflare邮箱地址: " cloudflareemail
+	if ["cloudflareemail" != "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$"];then
+		echo "不合法的邮箱地址"
 }
 
 # ==============part1=============
