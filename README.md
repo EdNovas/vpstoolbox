@@ -34,6 +34,8 @@ TG群：https://t.me/ednovas4
 
 ## 更新进程
 
+v 1.2.6 添加cloudflare ddns脚本
+
 v 1.2.5 添加一键SWAP，禁ping，改变DNS脚本，同步系统时间
 
 v 1.2.4 添加了显示一键DD脚本密码
