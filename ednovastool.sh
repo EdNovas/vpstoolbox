@@ -316,11 +316,17 @@ function noping(){
 }
 
 function cloudflareddns(){
-	curl https://raw.githubusercontent.com/aipeach/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /root/cf-v4-ddns.sh && chmod +x /root/cf-v4-ddns.sh
+	curl https://raw.githubusercontent.com/EdNovas/vpstoolbox/main/cf-v4-ddns.sh > /root/cf-v4-ddns.sh && chmod +x /root/cf-v4-ddns.sh
 	read -p "请输入你的Cloudflare邮箱地址: " cloudflareemail
-	if ["cloudflareemail" != "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$"];then
-		echo "不合法的邮箱地址"
-	fi
+	read -p "请输入你的Cloudflare API: " cloudflareapi
+	read -p "请输入你的主域名（example.com）：" cloudflaredomain
+	read -p "请输入你的Hostname（homeserver.example.com中的homeserver即可）：" cloudflarehostname
+	sed -i "s/CFUSER=/CFUSER=$cloudflareemail/g" /root/cf-v4-ddns.sh
+	sed -i "s/CFKEY=/CFKEY=$cloudflareapi/g" /root/cf-v4-ddns.sh
+	sed -i "s/CFZONE_NAME=/CFZONE_NAME=$cloudflaredomain/g" /root/cf-v4-ddns.sh
+	sed -i "s/CFRECORD_NAME=/CFRECORD_NAME=$cloudflarehostname/g" /root/cf-v4-ddns.sh
+	echo "*/2 * * * * /root/cf-v4-ddns.sh >/dev/null 2>&1\n" >> /var/spool/cron/crontabs/root
+	./cf-v4-ddns.sh
 }
 
 # ==============part1=============
