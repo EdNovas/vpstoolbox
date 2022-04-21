@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.2.5"
-changeLog="添加一键SWAP，禁ping，改变DNS脚本，同步系统时间"
+ver="1.2.6"
+changeLog="添加cloudflare ddns脚本"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
