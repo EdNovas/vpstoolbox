@@ -320,6 +320,7 @@ function cloudflareddns(){
 	read -p "请输入你的Cloudflare邮箱地址: " cloudflareemail
 	if ["cloudflareemail" != "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$"];then
 		echo "不合法的邮箱地址"
+	fi
 }
 
 # ==============part1=============
