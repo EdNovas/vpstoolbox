@@ -388,7 +388,7 @@ function ssronekey(){
 
 
 function xrayronekey(){
-    bash <(curl -Ls https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/ednovas/XrayR-release/master/install.sh)
 }
 
 
