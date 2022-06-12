@@ -313,9 +313,9 @@ function cloudflareddns(){
 
 function speedtest-clionekey(){
 	if [ $release = "Centos" ]; then
-        	curl -s https://install.speedtest.net/app/cli/install.rpm.sh | sudo bash
-		sudo yum install speedtest -y
-		speedtest
+        	wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+		chmod +x speedtest-cli
+		./speedtest-cli
    	 else
         	curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
 		sudo apt-get install speedtest -y
