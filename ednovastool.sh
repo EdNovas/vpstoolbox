@@ -299,7 +299,11 @@ function cloudflareddns(){
 	sed -i "s/CFKEY=/CFKEY=$cloudflareapi/g" /root/cf-v4-ddns.sh
 	sed -i "s/CFZONE_NAME=/CFZONE_NAME=$cloudflaredomain/g" /root/cf-v4-ddns.sh
 	sed -i "s/CFRECORD_NAME=/CFRECORD_NAME=$cloudflarehostname/g" /root/cf-v4-ddns.sh
-	echo "*/2 * * * * /root/cf-v4-ddns.sh >/dev/null 2>&1" >> /var/spool/cron/crontabs/root
+	if [ $release = "Centos" ]; then
+		echo "*/2 * * * * /root/cf-v4-ddns.sh >/dev/null 2>&1" >> /etc/crontab
+	    else
+		echo "*/2 * * * * /root/cf-v4-ddns.sh >/dev/null 2>&1" >> /var/spool/cron/crontabs/root
+	    fi
 	./cf-v4-ddns.sh
 }
 
