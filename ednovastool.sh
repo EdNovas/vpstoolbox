@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.2.6"
-changeLog="添加cloudflare ddns脚本"
+ver="1.2.7"
+changeLog="添加speedtest-go一键脚本"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -701,6 +701,7 @@ function vpsPerformance(){
     echo "2. SuperBench VPS检测脚本"
     echo "3. LemonBench VPS检测脚本"
 	echo "4. Speedtest-cli一键测速"
+	echo "5. Speedtest-go网页测速搭建脚本"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partTwoInput
@@ -709,6 +710,7 @@ function vpsPerformance(){
         2 ) superbench ;;
         3 ) lemonbench ;;
 		4 ) speedtest-clionekey ;;
+		5 ) speedtest-go ;;
         0 ) start_menu ;;
     esac
 }
