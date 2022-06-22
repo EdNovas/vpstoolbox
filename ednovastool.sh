@@ -343,6 +343,10 @@ function lemonbench(){
     curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s fast
 }
 
+function speedtest-go(){
+	bash <(curl -Lsk https://raw.githubusercontent.com/BigMangos/speedtest-go-script/master/install.sh)
+}
+
 
 # ==============part2=============
 
