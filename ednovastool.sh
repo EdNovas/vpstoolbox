@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.2.7"
-changeLog="添加speedtest-go一键脚本"
+ver="1.2.8"
+changeLog="添加了快捷方式"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -992,10 +992,10 @@ function othersonekey(){
 }
 
 
-# part 9
-# function updateScript(){
-#     wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
-# }
+part 9
+function updateScript(){
+    wget -P /root -N https://cdn.jsdelivr.net/gh/ednovas/vpstoolbox@main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
+}
 
 
 
@@ -1030,6 +1030,7 @@ function start_menu(){
     echo "9. 更新脚本"
     echo "0. 退出脚本"
     echo "                        "
+    echo "快捷方式创建成功，可执行[ednovas]快捷重新打开脚本"
     read -p "请输入选项:" menuNumberInput
     case "$menuNumberInput" in
         1 ) vpsBasic ;;
