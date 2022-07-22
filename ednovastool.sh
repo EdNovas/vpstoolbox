@@ -1046,5 +1046,6 @@ function start_menu(){
 }
 
 Get_Ip_Address
+mkdir -p /etc/ednovastool
 aliasInstall
 start_menu
