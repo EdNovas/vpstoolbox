@@ -26,6 +26,8 @@ TG群：https://t.me/ednovas4
 
 ## 更新进程
 
+v 1.2.8 快捷方式创建成功，可执行[ednovas]快捷重新打开脚本
+
 v 1.2.7 添加speedtest-go一键脚本
 
 v 1.2.6 添加cloudflare ddns脚本
