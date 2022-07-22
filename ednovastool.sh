@@ -604,7 +604,32 @@ function updateScript(){
 
 
 
+function aliasInstall() {
 
+	if [[ -f "$HOME/ednovastool.sh" ]] && [[ -d "/etc/ednovastool" ]] && grep <"$HOME/ednovastool.sh" -q "作者:EdNovas"; then
+		mv "$HOME/ednovastool.sh" /etc/ednovastool/ednovastool.sh
+		local installedN=
+		if [[ -d "/usr/bin/" ]]; then
+			if [[ ! -f "/usr/bin/ednovas" ]]; then
+				ln -s /etc/ednovastool/ednovastool.sh /usr/bin/ednovas
+				chmod 700 /usr/bin/ednovas
+				installedN=true
+			fi
+
+			rm -rf "$HOME/ednovastool.sh"
+		elif [[ -d "/usr/sbin" ]]; then
+			if [[ ! -f "/usr/sbin/ednovas" ]]; then
+				ln -s /etc/ednovastool/ednovastool.sh /usr/sbin/ednovas
+				chmod 700 /usr/sbin/ednovas
+				installedN=true
+			fi
+			rm -rf "$HOME/ednovastool.sh"
+		fi
+		if [[ "${installedN}" == "true" ]]; then
+			echoContent green "快捷方式创建成功，可执行[ednovas]重新打开脚本"
+		fi
+	fi
+}
 
 
 
@@ -1021,4 +1046,5 @@ function start_menu(){
 }
 
 Get_Ip_Address
+aliasInstall
 start_menu
