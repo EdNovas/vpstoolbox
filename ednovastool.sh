@@ -321,9 +321,8 @@ function speedtest-clionekey(){
 		chmod +x speedtest-cli
 		./speedtest-cli
    	 else
-        	curl -s https://install.speedtest.net/app/cli/install.deb.sh | sudo bash
-		sudo apt-get install speedtest -y
-		speedtest
+        	apt install speedtest-cli -y
+		speedtest-cli
     	fi
 }
 
