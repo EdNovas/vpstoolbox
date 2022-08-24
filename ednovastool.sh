@@ -991,7 +991,7 @@ function othersonekey(){
 }
 
 
-part 9
+#part 9
 function updateScript(){
     wget -P /root -N https://cdn.jsdelivr.net/gh/ednovas/vpstoolbox@main/ednovastool.sh && chmod +x ednovastool.sh && ./ednovastool.sh
 }
