@@ -393,6 +393,12 @@ function sursharkinstall(){
 	sudo surfshark-vpn
 }
 
+function expressinstall(){
+	sudo wget https://www.expressvpn.works/clients/linux/expressvpn_3.32.0.5-1_amd64.deb
+	sudo dpkg -i expressvpn_3.32.0.5-1_amd64.deb
+	sudo expressvpn activate
+}
+
 function tcponekey(){
     wget https://raw.githubusercontent.com/wdm1732418365/bbr-tcp-boost/main/tools.sh -O tools.sh && bash tools.sh
 }
