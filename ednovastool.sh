@@ -385,6 +385,14 @@ function mtproxyonekey(){
     curl -s -o mtproxy.sh https://raw.githubusercontent.com/ellermister/mtproxy/master/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
 }
 
+function sursharkinstall(){
+	sudo wget https://ocean.surfshark.com/debian/pool/main/s/surfshark-release/surfshark-release_1.0.0-2_amd64.deb
+	sudo dpkg -i surfshark-release_1.0.0-2_amd64.deb
+	sudo apt-get update -y
+	sudo apt-get install surfshark-vpn -y
+	sudo surfshark-vpn
+}
+
 function tcponekey(){
     wget https://raw.githubusercontent.com/wdm1732418365/bbr-tcp-boost/main/tools.sh -O tools.sh && bash tools.sh
 }
@@ -767,10 +775,11 @@ function proxyRelated(){
     echo "4. Xrayr 后端安装"
     echo "5. Xrayr添加本地审计规则"
     echo "6. Mtproxy+伪tls一键脚本"
+    echo "7. Surshark VPN一键安装脚本"
     echo "                        "
-    echo "7. TCP调优脚本"
-    echo "8. 六合一BBR脚本"
-    echo "9. OVZ开启BBR"
+    echo "8. TCP调优脚本"
+    echo "9. 六合一BBR脚本"
+    echo "10. OVZ开启BBR"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partThreeInput
@@ -781,9 +790,10 @@ function proxyRelated(){
         4 ) xrayronekey ;;
         5 ) rulelist ;;
         6 ) mtproxyonekey ;;
-        7 ) tcponekey ;;
-        8 ) bbronekey ;;
-        9 ) ovzbbr ;;
+	7 ) sursharkinstall ;;
+        8 ) tcponekey ;;
+        9 ) bbronekey ;;
+        10 ) ovzbbr ;;
         0 ) start_menu ;;
     esac
 }
