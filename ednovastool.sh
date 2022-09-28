@@ -782,10 +782,11 @@ function proxyRelated(){
     echo "5. Xrayr添加本地审计规则"
     echo "6. Mtproxy+伪tls一键脚本"
     echo "7. Surshark VPN一键安装脚本"
+    echo "8. Express VPN一键安装脚本"
     echo "                        "
-    echo "8. TCP调优脚本"
-    echo "9. 六合一BBR脚本"
-    echo "10. OVZ开启BBR"
+    echo "9. TCP调优脚本"
+    echo "10. 六合一BBR脚本"
+    echo "11. OVZ开启BBR"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partThreeInput
@@ -797,9 +798,10 @@ function proxyRelated(){
         5 ) rulelist ;;
         6 ) mtproxyonekey ;;
 	7 ) sursharkinstall ;;
-        8 ) tcponekey ;;
-        9 ) bbronekey ;;
-        10 ) ovzbbr ;;
+	8 ) expressinstall ;;
+        9 ) tcponekey ;;
+        10 ) bbronekey ;;
+        11 ) ovzbbr ;;
         0 ) start_menu ;;
     esac
 }
