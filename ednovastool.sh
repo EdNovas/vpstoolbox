@@ -411,6 +411,12 @@ function bbronekey(){
 function ovzbbr(){
     wget --no-cache -O lkl-haproxy.sh https://github.com/mzz2017/lkl-haproxy/raw/master/lkl-haproxy.sh && bash lkl-haproxy.sh
 }
+
+function wireguardonekey(){
+	sudo apt install iproute2 openresolv -y
+	sudo apt install wireguard-tools --no-install-recommends
+	cd /etc/wireguard
+}
 # ==============part3=============
 
 
@@ -783,10 +789,11 @@ function proxyRelated(){
     echo "6. Mtproxy+伪tls一键脚本"
     echo "7. Surshark VPN一键安装脚本"
     echo "8. Express VPN一键安装脚本"
+    echo "9. Wireguard一键安装脚本"
     echo "                        "
-    echo "9. TCP调优脚本"
-    echo "10. 六合一BBR脚本"
-    echo "11. OVZ开启BBR"
+    echo "10. TCP调优脚本"
+    echo "11. 六合一BBR脚本"
+    echo "12. OVZ开启BBR"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partThreeInput
@@ -799,9 +806,10 @@ function proxyRelated(){
         6 ) mtproxyonekey ;;
 	7 ) sursharkinstall ;;
 	8 ) expressinstall ;;
-        9 ) tcponekey ;;
-        10 ) bbronekey ;;
-        11 ) ovzbbr ;;
+	9 ) wireguardonekey ;;
+        10 ) tcponekey ;;
+        11 ) bbronekey ;;
+        12 ) ovzbbr ;;
         0 ) start_menu ;;
     esac
 }
