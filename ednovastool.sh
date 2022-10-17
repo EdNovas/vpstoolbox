@@ -417,6 +417,13 @@ function wireguardonekey(){
 	sudo apt install wireguard-tools --no-install-recommends
 	cd /etc/wireguard
 }
+
+function l2tponekey(){
+	wget --no-check-certificate https://raw.githubusercontent.com/teddysun/across/master/l2tp.sh
+	chmod +x l2tp.sh
+	./l2tp.sh
+}
+
 # ==============part3=============
 
 
