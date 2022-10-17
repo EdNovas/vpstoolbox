@@ -797,10 +797,11 @@ function proxyRelated(){
     echo "7. Surshark VPN一键安装脚本"
     echo "8. Express VPN一键安装脚本"
     echo "9. Wireguard一键安装脚本"
+    echo "10. L2TP一键安装脚本"
     echo "                        "
-    echo "10. TCP调优脚本"
-    echo "11. 六合一BBR脚本"
-    echo "12. OVZ开启BBR"
+    echo "11. TCP调优脚本"
+    echo "12. 六合一BBR脚本"
+    echo "13. OVZ开启BBR"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partThreeInput
@@ -814,9 +815,10 @@ function proxyRelated(){
 	7 ) sursharkinstall ;;
 	8 ) expressinstall ;;
 	9 ) wireguardonekey ;;
-        10 ) tcponekey ;;
-        11 ) bbronekey ;;
-        12 ) ovzbbr ;;
+	10 ) l2tponekey ;;
+        11 ) tcponekey ;;
+        12 ) bbronekey ;;
+        13 ) ovzbbr ;;
         0 ) start_menu ;;
     esac
 }
