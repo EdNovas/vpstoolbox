@@ -1,6 +1,6 @@
 #!/bin/bash
 ver="1.2.9"
-changeLog="添加了IPV6优先和SOGA脚本，优化了一些BUG"
+changeLog="添加了IPV6优先和SOGA脚本，优化了部分脚本"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -381,6 +381,7 @@ function ssronekey(){
 
 function xrayronekey(){
     wget -N https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/install.sh && bash install.sh
+    cd /etc/XrayR
 }
 
 
@@ -437,6 +438,7 @@ function l2tponekey(){
 
 function sogaonekey(){
 	bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/soga/master/install.sh)
+	cd /etc/soga
 }
 
 # ==============part3=============
