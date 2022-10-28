@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.2.8"
-changeLog="添加了快捷方式"
+ver="1.2.9"
+changeLog="添加了IPV6优先和SOGA脚本，优化了一些BUG"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -307,6 +307,17 @@ function cloudflareddns(){
 	./cf-v4-ddns.sh
 }
 
+function ipv4first(){
+	sed -i 's/#precedence ::ffff:0:0\/96  100/precedence ::ffff:0:0\/96  100/' /etc/gai.conf
+	curl ip.sb
+}
+
+function ipv6first(){
+	sed -i 's/precedence ::ffff:0:0\/96  100/#precedence ::ffff:0:0\/96  100/' /etc/gai.conf
+	echo "label 2002::/16   2" >> /etc/gai.conf
+	curl ip.sb
+}
+
 # ==============part1=============
 
 
@@ -422,6 +433,10 @@ function l2tponekey(){
 	wget --no-check-certificate https://raw.githubusercontent.com/teddysun/across/master/l2tp.sh
 	chmod +x l2tp.sh
 	./l2tp.sh
+}
+
+function sogaonekey(){
+	bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/soga/master/install.sh)
 }
 
 # ==============part3=============
@@ -700,6 +715,8 @@ function vpsBasic() {
 	echo "15. 修改系统DNS"
 	echo "16. 一键添加SWAP"
 	echo "17. Cloudflare DDNS解析"
+	echo "18. IPV4优先"
+	echo "19. IPV6优先"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
@@ -721,6 +738,8 @@ function vpsBasic() {
 	15 ) changedns ;;
 	16 ) addswap ;;
 	17 ) cloudflareddns ;;
+	18 ) ipv4first ;;
+	19 ) ipv6first ;;
         0 ) start_menu ;;
     esac
 }
@@ -792,16 +811,17 @@ function proxyRelated(){
     echo "2. x-ui面板"
     echo "3. ssr一键脚本"
     echo "4. Xrayr 后端安装"
-    echo "5. Xrayr添加本地审计规则"
-    echo "6. Mtproxy+伪tls一键脚本"
-    echo "7. Surshark VPN一键安装脚本"
-    echo "8. Express VPN一键安装脚本"
-    echo "9. Wireguard一键安装脚本"
-    echo "10. L2TP一键安装脚本"
+    echo "5. Soga一键安装"
+    echo "6. Xrayr添加本地审计规则"
+    echo "7. Mtproxy+伪tls一键脚本"
+    echo "8. Surshark VPN一键安装脚本"
+    echo "9. Express VPN一键安装脚本"
+    echo "10. Wireguard一键安装脚本"
+    echo "11. L2TP一键安装脚本"
     echo "                        "
-    echo "11. TCP调优脚本"
-    echo "12. 六合一BBR脚本"
-    echo "13. OVZ开启BBR"
+    echo "12. TCP调优脚本"
+    echo "13. 六合一BBR脚本"
+    echo "14. OVZ开启BBR"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partThreeInput
@@ -810,15 +830,16 @@ function proxyRelated(){
         2 ) xui ;;
         3 ) ssronekey ;;
         4 ) xrayronekey ;;
-        5 ) rulelist ;;
-        6 ) mtproxyonekey ;;
-	7 ) sursharkinstall ;;
-	8 ) expressinstall ;;
-	9 ) wireguardonekey ;;
-	10 ) l2tponekey ;;
-        11 ) tcponekey ;;
-        12 ) bbronekey ;;
-        13 ) ovzbbr ;;
+	5 ) sogaonekey ;;
+        6 ) rulelist ;;
+        7 ) mtproxyonekey ;;
+	8 ) sursharkinstall ;;
+	9 ) expressinstall ;;
+	10 ) wireguardonekey ;;
+	11 ) l2tponekey ;;
+        12 ) tcponekey ;;
+        13 ) bbronekey ;;
+        14 ) ovzbbr ;;
         0 ) start_menu ;;
     esac
 }
