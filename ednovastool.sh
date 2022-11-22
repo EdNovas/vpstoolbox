@@ -113,6 +113,17 @@ function openipv6(){
     sudo sed -i 's/net.ipv6.conf.default.disable_ipv6=1/#net.ipv6.conf.default.disable_ipv6=1/g' /etc/sysctl.conf
 }
 
+function addipv6(){
+	read -p "请输入你要添加的IPV6地址(IPV6 Address)，带/64 " IPV6ADDRESS
+	read -p "请输入你要添加的IPV6地址的网关(Gateway)" IPV6GATEWAY
+	apt install net-tools -y
+	ifconfig
+	read -p "请输入你要添加的网卡名（例如“ens3”）" NETWORKNAME
+	ip addr add $IPV6ADDRESS dev $NETWORKNAME
+	ip -6 route add $IPV6GATEWAY dev $NETWORKNAME
+	ip -6 route add default via $IPV6GATEWAY dev $NETWORKNAME
+}
+
 function changesshport(){
     green "请输入你要更改为的ssh端口(1024-65535)"
     read -p "请输入你要更改为的ssh端口(1024-65535):" changedsshport
@@ -720,6 +731,7 @@ function vpsBasic() {
 	echo "17. Cloudflare DDNS解析"
 	echo "18. IPV4优先"
 	echo "19. IPV6优先"
+	echo "20. 添加IPV6地址和网关"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
@@ -743,6 +755,7 @@ function vpsBasic() {
 	17 ) cloudflareddns ;;
 	18 ) ipv4first ;;
 	19 ) ipv6first ;;
+	20 ) addipv6 ;;
         0 ) start_menu ;;
     esac
 }
