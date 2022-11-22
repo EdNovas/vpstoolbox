@@ -114,14 +114,15 @@ function openipv6(){
 }
 
 function addipv6(){
-	read -p "请输入你要添加的IPV6地址(IPV6 Address)，带/64 " IPV6ADDRESS
-	read -p "请输入你要添加的IPV6地址的网关(Gateway)" IPV6GATEWAY
+	read -p "请输入你要添加的IPV6地址(IPV6 Address），带/64或/128：" IPV6ADDRESS
+	read -p "请输入你要添加的IPV6地址的网关(Gateway）：" IPV6GATEWAY
 	apt install net-tools -y
 	ifconfig
-	read -p "请输入你要添加的网卡名（例如“ens3”）" NETWORKNAME
+	read -p "请输入你要添加的网卡名（例如“ens3”）：" NETWORKNAME
 	ip addr add $IPV6ADDRESS dev $NETWORKNAME
 	ip -6 route add $IPV6GATEWAY dev $NETWORKNAME
 	ip -6 route add default via $IPV6GATEWAY dev $NETWORKNAME
+	curl -6 ip.p3terx.com
 }
 
 function changesshport(){
