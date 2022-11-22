@@ -253,7 +253,7 @@ function changedns(){
 }
 
 function addswap(){
-	wget https://www.moerats.com/usr/shell/swap.sh && bash swap.sh
+	wget https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/root.sh && bash swap.sh
 }
 
 function nopingin(){
