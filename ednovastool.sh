@@ -1,6 +1,6 @@
 #!/bin/bash
-ver="1.2.9"
-changeLog="添加了IPV6优先和SOGA脚本，优化了部分脚本"
+ver="1.2.10"
+changeLog="添加了回程检测脚本，优化了部分脚本，修复了一些bug"
 arch=`uname -m`
 virt=`systemd-detect-virt`
 kernelVer=`uname -r`
@@ -368,6 +368,14 @@ function lemonbench(){
 
 function speedtest-go(){
 	bash <(curl -Lsk https://raw.githubusercontent.com/BigMangos/speedtest-go-script/master/install.sh)
+}
+
+function routetrace(){
+	wget -qO- git.io/besttrace | bash
+}
+
+function routetracesimple(){
+	curl https://raw.githubusercontent.com/zhanghanyun/backtrace/main/install.sh -sSf | sh
 }
 
 
@@ -789,6 +797,8 @@ function vpsPerformance(){
     echo "3. LemonBench VPS检测脚本"
 	echo "4. Speedtest-cli一键测速"
 	echo "5. Speedtest-go网页测速搭建脚本"
+	echo "6. 回程一键检测脚本"
+	echo "7. 回程一键检测脚本简易版"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partTwoInput
@@ -798,6 +808,8 @@ function vpsPerformance(){
         3 ) lemonbench ;;
 		4 ) speedtest-clionekey ;;
 		5 ) speedtest-go ;;
+		6 ) routetrace ;;
+		7 ) routetracesimple ;;
         0 ) start_menu ;;
     esac
 }
