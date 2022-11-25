@@ -340,12 +340,12 @@ function ipv6first(){
 
 function speedtest-clionekey(){
 	if [ $release = "Centos" ]; then
-        	wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
-		chmod +x speedtest-cli
-		./speedtest-cli
+        	curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | sudo bash
+		sudo yum install speedtest -y
+		speedtest
    	 else
         	curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-		sudo apt-get install speedtest
+		sudo apt-get install speedtest -y
 		speedtest
     	fi
 }
