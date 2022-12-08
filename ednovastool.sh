@@ -73,7 +73,7 @@ fi
 
 
 function Get_Ip_Address(){
-	getIpAddress=$(curl https://ip.gs)
+	getIpAddress=$(curl ip.p3terx.com)
 }
 
 
