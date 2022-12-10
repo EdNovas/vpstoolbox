@@ -192,6 +192,14 @@ function centosfirewall(){
     systemctl disable firewalld
 }
 
+function ubuntufirewall(){
+    ufw disable
+    iptables -P INPUT ACCEPT
+    iptables -P FORWARD ACCEPT
+    iptables -P OUTPUT ACCEPT
+    iptables -F
+}
+
 function changehostname(){
     read -p "您的新主机名(Your new hostname):" newhostname
     hostnamectl set-hostname $newhostname
@@ -726,22 +734,23 @@ function vpsBasic() {
     echo "2. VPS系统更新"
     echo "3. 甲骨文关闭防火墙"
     echo "4. Centos关闭防火墙"
-    echo "5. 关闭IPV6"
-    echo "6. 打开IPV6"
-    echo "7. 修改主机名"
-    echo "8. 修改SSH连接端口"
-    echo "9. 显示本机IP"
-    echo "10. 显示实时进程"
-    echo "11. 显示内存使用情况"
-    echo "12. 显示磁盘占用"
-    echo "13. 一键DD脚本"
-	echo "14. 同步系统时间"
-	echo "15. 修改系统DNS"
-	echo "16. 一键添加SWAP"
-	echo "17. Cloudflare DDNS解析"
-	echo "18. IPV4优先"
-	echo "19. IPV6优先"
-	echo "20. 添加IPV6地址和网关"
+    echo "5. Ubuntu/Debian关闭防火墙"
+    echo "6. 关闭IPV6"
+    echo "7. 打开IPV6"
+    echo "8. 修改主机名"
+    echo "9. 修改SSH连接端口"
+    echo "10. 显示本机IP"
+    echo "11. 显示实时进程"
+    echo "12. 显示内存使用情况"
+    echo "13. 显示磁盘占用"
+    echo "14. 一键DD脚本"
+	echo "15. 同步系统时间"
+	echo "16. 修改系统DNS"
+	echo "17. 一键添加SWAP"
+	echo "18. Cloudflare DDNS解析"
+	echo "19. IPV4优先"
+	echo "20. IPV6优先"
+	echo "21. 添加IPV6地址和网关"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
@@ -750,22 +759,23 @@ function vpsBasic() {
         2 ) vpsupdate ;;
         3 ) oraclefirewall ;;
         4 ) centosfirewall ;;
-        5 ) closeipv6 ;;
-        6 ) openipv6 ;;
-        7 ) changehostname ;;
-        8 ) changesshport ;;
-        9 ) ipdetestonekey ;;
-        10 ) realTimeProgress ;;
-        11 ) memorySpace ;;
-        12 ) driveSpace ;;
-        13 ) ddonekey ;;
-	14 ) synctime ;;
-	15 ) changedns ;;
-	16 ) addswap ;;
-	17 ) cloudflareddns ;;
-	18 ) ipv4first ;;
-	19 ) ipv6first ;;
-	20 ) addipv6 ;;
+	5 ) ubuntufirewall ;;
+        6 ) closeipv6 ;;
+        7 ) openipv6 ;;
+        8 ) changehostname ;;
+        9 ) changesshport ;;
+        10 ) ipdetestonekey ;;
+        11 ) realTimeProgress ;;
+        12 ) memorySpace ;;
+        13 ) driveSpace ;;
+        14 ) ddonekey ;;
+	15 ) synctime ;;
+	16 ) changedns ;;
+	17 ) addswap ;;
+	18 ) cloudflareddns ;;
+	19 ) ipv4first ;;
+	20 ) ipv6first ;;
+	21 ) addipv6 ;;
         0 ) start_menu ;;
     esac
 }
