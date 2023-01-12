@@ -410,7 +410,7 @@ function ssronekey(){
 
 
 function xrayronekey(){
-    wget -N https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/install.sh && bash install.sh
+    bash <(curl -Ls https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/install.sh)
     cd /etc/XrayR
 }
 
