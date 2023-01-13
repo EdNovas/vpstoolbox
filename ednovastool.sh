@@ -457,6 +457,7 @@ function ovzbbr(){
 function wireguardonekey(){
 	sudo apt install iproute2 openresolv -y
 	sudo apt install wireguard-tools --no-install-recommends
+	sudo apt install iptables -y
 	cd /etc/wireguard
 }
 
