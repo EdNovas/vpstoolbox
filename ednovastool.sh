@@ -436,8 +436,8 @@ function sursharkinstall(){
 }
 
 function expressinstall(){
-	sudo wget https://www.expressvpn.works/clients/linux/expressvpn_3.32.0.5-1_amd64.deb
-	sudo dpkg -i expressvpn_3.32.0.5-1_amd64.deb
+	sudo wget https://www.expressvpn.works/clients/linux/expressvpn_3.39.0.8-1_amd64.deb
+	sudo dpkg -i expressvpn_3.39.0.8-1_amd64.deb
 	sudo expressvpn activate
 }
 
