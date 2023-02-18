@@ -387,6 +387,9 @@ function routetracesimple(){
 	curl https://raw.githubusercontent.com/zhanghanyun/backtrace/main/install.sh -sSf | sh
 }
 
+function yabs(){
+	curl -sL yabs.sh | bash
+}
 
 # ==============part2=============
 
@@ -807,10 +810,11 @@ function vpsPerformance(){
     echo "1. Bench VPS检测脚本"
     echo "2. SuperBench VPS检测脚本"
     echo "3. LemonBench VPS检测脚本"
-	echo "4. Speedtest-cli一键测速"
-	echo "5. Speedtest-go网页测速搭建脚本"
-	echo "6. 回程一键检测脚本"
-	echo "7. 回程一键检测脚本简易版"
+    echo "4. yabs VPS检测脚本"
+	echo "5. Speedtest-cli一键测速"
+	echo "6. Speedtest-go网页测速搭建脚本"
+	echo "7. 回程一键检测脚本"
+	echo "8. 回程一键检测脚本简易版"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partTwoInput
@@ -818,10 +822,11 @@ function vpsPerformance(){
         1 ) benchonekey ;;
         2 ) superbench ;;
         3 ) lemonbench ;;
-		4 ) speedtest-clionekey ;;
-		5 ) speedtest-go ;;
-		6 ) routetrace ;;
-		7 ) routetracesimple ;;
+	4 ) yabs ;;
+		5 ) speedtest-clionekey ;;
+		6 ) speedtest-go ;;
+		7 ) routetrace ;;
+		8 ) routetracesimple ;;
         0 ) start_menu ;;
     esac
 }
