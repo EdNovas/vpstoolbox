@@ -522,7 +522,7 @@ function georgexie2333onekey(){
 }
 
 function tiktokcheck(){
-	curl -fsL -o ./t.sh.x https://github.com/lmc999/TikTokCheck/raw/main/t.sh.x && chmod +x ./t.sh.x && ./t.sh.x
+	bash <(curl -s https://raw.githubusercontent.com/lmc999/TikTokCheck/main/tiktok.sh)
 }
 # ==============part4=============
 
