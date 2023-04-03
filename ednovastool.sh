@@ -408,7 +408,7 @@ function xui(){
 }
 
 function ssronekey(){
-    bash <(curl -sL https://s.hijk.art/ssr.sh)
+    bash <(curl -sL https://storage.googleapis.com/tiziblog/ssr.sh)
 }
 
 
