@@ -339,6 +339,40 @@ function ipv6first(){
 	curl ip.sb
 }
 
+function changenat64(){
+	echo -e "nameserver 2a01:4f8:c2c:123f::1\nnameserver 2a00:1098:2c::1\nnameserver 2a01:4f9:c010:3f02::1" > /etc/resolv.conf
+	green "DNS已更改为 2a01:4f9:c010:3f02::1"
+	green "2a00:1098:2c::1"
+	green "2a01:4f8:c2c:123f::1"
+}
+
+function changetrex(){
+	echo -e "nameserver 2001:67c:2b0::4\nnameserver 2001:67c:2b0::6" > /etc/resolv.conf
+	green "DNS已更改为 2001:67c:2b0::4"
+	green "2001:67c:2b0::6"
+}
+
+function changego6lab(){
+	echo -e "nameserver 2001:67c:27e4:15::6411\nnameserver 2001:67c:27e4::64" > /etc/resolv.conf
+	green "DNS已更改为 2001:67c:27e4:15::6411"
+	green "2001:67c:27e4::64"
+}
+
+function addDNS64(){
+	echo "1. 使用 https://nat64.net/ DNS64"
+	echo "2. 使用 http://www.trex.fi/2011/dns64.html DNS64"
+	echo "3. 使用 https://go6lab.si/current-ipv6-tests/nat64dns64-public-test/ DNS64"
+	echo "0. 反回上一级"
+	echo "                        "
+    	read -p "请输入选项:" dns64switch
+	case "$dns64switch" in
+		1 ) changenat64 ;;
+		2 ) changetrex ;;
+		3 ) changego6lab ;;
+		0 ) vpsBasic ;;
+	esac
+}
+
 # ==============part1=============
 
 
@@ -755,6 +789,7 @@ function vpsBasic() {
 	echo "19. IPV4优先"
 	echo "20. IPV6优先"
 	echo "21. 添加IPV6地址和网关"
+	echo "22. 添加 DNS64 DNS解析“
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
@@ -763,7 +798,7 @@ function vpsBasic() {
         2 ) vpsupdate ;;
         3 ) oraclefirewall ;;
         4 ) centosfirewall ;;
-	5 ) ubuntufirewall ;;
+		5 ) ubuntufirewall ;;
         6 ) closeipv6 ;;
         7 ) openipv6 ;;
         8 ) changehostname ;;
@@ -773,13 +808,14 @@ function vpsBasic() {
         12 ) memorySpace ;;
         13 ) driveSpace ;;
         14 ) ddonekey ;;
-	15 ) synctime ;;
-	16 ) changedns ;;
-	17 ) addswap ;;
-	18 ) cloudflareddns ;;
-	19 ) ipv4first ;;
-	20 ) ipv6first ;;
-	21 ) addipv6 ;;
+		15 ) synctime ;;
+		16 ) changedns ;;
+		17 ) addswap ;;
+		18 ) cloudflareddns ;;
+		19 ) ipv4first ;;
+		20 ) ipv6first ;;
+		21 ) addipv6 ;;
+		22 ) addDNS64 ;;
         0 ) start_menu ;;
     esac
 }
