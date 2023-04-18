@@ -789,7 +789,7 @@ function vpsBasic() {
 	echo "19. IPV4优先"
 	echo "20. IPV6优先"
 	echo "21. 添加IPV6地址和网关"
-	echo "22. 添加 DNS64 DNS解析“
+	echo "22. 添加 DNS64 DNS解析"
     echo "0. 返回上一级"
     echo "                        "
     read -p "请输入选项:" partOneInput
