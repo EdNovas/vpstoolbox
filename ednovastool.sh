@@ -531,7 +531,7 @@ function netflixdetect(){
 }
 
 function warponekey(){
-    wget -N https://cdn.jsdelivr.net/gh/fscarmen/warp/menu.sh && bash menu.sh
+    wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh && bash menu.sh [option] [lisence/url/token]
 }
 
 function p3trexwarp(){
