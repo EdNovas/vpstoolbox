@@ -43,7 +43,7 @@ CFRECORD_NAME=
 CFRECORD_TYPE=A
 
 # Cloudflare TTL for record, between 120 and 86400 seconds
-CFTTL=120
+CFTTL=60
 
 # Ignore local file, update ip anyway
 FORCE=false
