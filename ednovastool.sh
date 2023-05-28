@@ -316,10 +316,10 @@ function cloudflareddns(){
 	read -p "请输入你的Cloudflare API: " cloudflareapi
 	read -p "请输入你的主域名（example.com）：" cloudflaredomain
 	read -p "请输入你的Hostname（homeserver.example.com）：" cloudflarehostname
-	sed -i "s/CFUSER=/CFUSER=$cloudflareemail/g" /root/cf-v4-ddns.sh
-	sed -i "s/CFKEY=/CFKEY=$cloudflareapi/g" /root/cf-v4-ddns.sh
-	sed -i "s/CFZONE_NAME=/CFZONE_NAME=$cloudflaredomain/g" /root/cf-v4-ddns.sh
-	sed -i "s/CFRECORD_NAME=/CFRECORD_NAME=$cloudflarehostname/g" /root/cf-v4-ddns.sh
+	sed -i "s/CFUSER=$/CFUSER=$cloudflareemail/g" /root/cf-v4-ddns.sh
+	sed -i "s/CFKEY=$/CFKEY=$cloudflareapi/g" /root/cf-v4-ddns.sh
+	sed -i "s/CFZONE_NAME=$/CFZONE_NAME=$cloudflaredomain/g" /root/cf-v4-ddns.sh
+	sed -i "s/CFRECORD_NAME=$/CFRECORD_NAME=$cloudflarehostname/g" /root/cf-v4-ddns.sh
 	if [ $release = "Centos" ]; then
 		echo "*/2 * * * * /root/cf-v4-ddns.sh >/dev/null 2>&1" >> /etc/crontab
 	    else
