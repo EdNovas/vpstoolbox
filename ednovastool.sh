@@ -534,8 +534,8 @@ function warponekey(){
     wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh && bash menu.sh [option] [lisence/url/token]
 }
 
-function p3trexwarp(){
-    bash <(curl -fsSL git.io/warp.sh) install
+function warpgoonekey(){
+    wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh && bash warp-go.sh [option] [lisence]
 }
 
 function acacia233(){
@@ -953,7 +953,7 @@ function mediaDetectionUnlock(){
     echo "2. 奈飞检测脚本"
     echo "                  "
     echo "3. fscarmen warp一键脚本"
-    echo "4. p3trex warp一键脚本"
+    echo "4. fscarmen warp go一键脚本"
     echo "5. acacia233 warp解锁奈飞脚本"
     echo "6. GeorgeXie2333 warp解锁奈飞脚本"
     echo "7. GeorgeXie2333 warp刷IP脚本"
@@ -965,7 +965,7 @@ function mediaDetectionUnlock(){
         1 ) region ;;
         2 ) netflixdetect ;;
         3 ) warponekey ;;
-        4 ) p3trexwarp ;;
+        4 ) warpgoonekey ;;
         5 ) acacia233 ;;
         6 ) georgexie2333onekey ;;
         7 ) georgexie2333 ;;
