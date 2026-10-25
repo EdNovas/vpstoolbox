@@ -155,7 +155,7 @@ fi
 }
 
 function rootLogin(){
-    wget -N https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/root.sh && chmod -R 755 root.sh && bash root.sh
+    wget -N https://raw.githubusercontent.com/ednovas/vpstoolbox/main/root.sh && chmod -R 755 root.sh && bash root.sh
 }
 
 function vpsupdate(){
@@ -274,7 +274,7 @@ function changedns(){
 }
 
 function addswap(){
-	wget https://raw.githubusercontent.com/wdm1732418365/vpstoolbox/main/swap.sh && bash swap.sh
+	wget https://raw.githubusercontent.com/ednovas/vpstoolbox/main/swap.sh && bash swap.sh
 }
 
 function nopingin(){
@@ -454,7 +454,7 @@ function xrayronekey(){
 
 function rulelist(){
     cd /etc/XrayR
-    wget https://raw.githubusercontent.com/wdm1732418365/rulelist/main/rulelist
+    wget https://raw.githubusercontent.com/ednovas/rulelist/main/rulelist
     sudo sed -i 's/RuleListPath:/RuleListPath: \/etc\/XrayR\/rulelist/g' /etc/XrayR/config.yml
     xrayr restart
 }
@@ -479,7 +479,7 @@ function expressinstall(){
 }
 
 function tcponekey(){
-    wget https://raw.githubusercontent.com/wdm1732418365/bbr-tcp-boost/main/tools.sh -O tools.sh && bash tools.sh
+    wget https://raw.githubusercontent.com/ednovas/bbr-tcp-boost/main/tools.sh -O tools.sh && bash tools.sh
 }
 
 function bbronekey(){
